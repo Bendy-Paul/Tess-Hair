@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tess Hair & Scalp Clinic</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (required by Owl Carousel) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Owl Carousel CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* General Body & Font Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #fdfaf3; /* Creamy beige background */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #333 !important;
+        }
+        .navbar .nav-link {
+            color: #333 !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .navbar .nav-link:hover, .navbar .nav-link.active {
+            color: #c5a47e !important;
+        }
+        .navbar .btn-primary {
+             background-color: #2b2b2b;
+             border-color: #2b2b2b;
+             font-weight: 600;
+        }
+        .navbar .btn-primary:hover {
+            background-color: #444;
+            border-color: #444;
+        }
+        
+        /* Smooth Dropdown Transition for Desktop */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu.show {
+            animation: fadeInDown 0.3s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* 1. Hero Section */
+        .hero-section {
+            position: relative;
+            height: 80vh; /* Adjusted height for navbar */
+            background: url('./assets/img/hero/hero-1.avif') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-links a {
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* 2. Features Section */
+        .features-section {
+            background-color: #2b2b2b;
+        }
+
+        /* 3. Who We Help Section */
+        .who-we-help-section {
+            background-color: #fdfaf3;
+        }
+        .who-we-help-section img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+
+        /* 4. Testimonials Section */
+        .testimonials-section {
+            background-color: #fdfaf3;
+        }
+        
+        /* Masonry Layout for Testimonials */
+        .masonry-grid {
+            column-gap: 1.5rem;
+            column-count: 1;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 992px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-card {
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+         .review-card .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .review-card .google-icon {
+            font-size: 1.5rem;
+            color: #DB4437;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        .review-card .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: #6c757d;
+        }
+         .review-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .reviewer span {
+            font-weight: 600;
+        }
+
+        /* 5. Video Section */
+        .video-section {
+            background-color: #fceef2; /* Light pink background */
+        }
+        .video-player {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .video-section .btn-dark {
+            background-color: #333;
+            border-color: #333;
+            padding: 10px 30px;
+            font-weight: 600;
+        }
+
+
+        /* 6. Solutions Section */
+        .solutions-section {
+            background-color: #fdfaf3;
+        }
+        .solution-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        /* Make solution images the same height without stretching: keep aspect ratio and crop as needed */
+        .solution-item {
+            /* establish a uniform visual height for the image area */
+            height: 220px;
+        }
+        .solution-item img {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crop to fill while preserving aspect ratio */
+            display: block;
+        }
+        @media (max-width: 575.98px) {
+            .solution-item {
+                height: 160px;
+            }
+        }
+        .solution-item:hover img {
+            transform: scale(1.05);
+        }
+        .solution-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .solution-overlay h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* 7. As Seen In Section */
+        .as-seen-in-section {
+            background-color: #fff;
+        }
+        .as-seen-in-section img {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .as-seen-in-section img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        /* Owl carousel adjustments */
+        .as-seen-carousel .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 5px;
+        }
+        .as-seen-carousel .item img {
+            max-height: 70px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* 8. Articles Section */
+        .articles-section {
+            background-color: #fdfaf3;
+        }
+        .articles-section .card {
+            background-color: transparent;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2b2b2b;
+            color: #f8f9fa;
+        }
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .footer .footer-bottom {
+            border-top: 1px solid #444;
+        }
+
+        /* Fullscreen Modal Navigation for Medium and Small Screens */
+        @media (max-width: 991.98px) {
+            .navbar .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #fdfaf3; /* Match body background */
+                z-index: 1050;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                /* Override Bootstrap's inline style for transition */
+                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .navbar .navbar-collapse.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Override Bootstrap's default hiding to allow for transition */
+            .navbar .navbar-collapse.collapse:not(.show) {
+                display: flex; /* Keep as flex to allow transition */
+            }
+
+            .navbar-collapse .navbar-nav {
+                /* Remove margin-left auto for centering */
+                margin-left: 0 !important;
+            }
+
+            .navbar-collapse .nav-item {
+                margin: 0.75rem 0;
+            }
+
+            .navbar-collapse .nav-link {
+                font-size: 1.75rem; /* Larger font for modal view */
+            }
+             .navbar-collapse .dropdown-menu {
+                text-align: center;
+                border: none;
+                background-color: transparent;
+                box-shadow: none;
+                
+                /* Accordion Styles */
+                display: block;
+                width: 100%;
+                animation: none;
+                max-height: 0;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease-in-out;
+            }
+            .navbar-collapse .dropdown-item {
+                font-size: 1.25rem;
+                color: #555;
+                padding: 0.5rem 1rem;
+            }
+            
+            .navbar-collapse .dropdown-menu.show {
+                transform: none;
+                max-height: 250px; /* Adjust to fit all items */
+                margin-top: 0.5rem;
+            }
+
+            /* Style the Book Now button for modal view */
+            .navbar-collapse .btn-primary {
+               padding: 0.75rem 2rem;
+               font-size: 1.25rem;
+            }
+
+            /* Style and position the close button */
+            .navbar-collapse .btn-close {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                font-size: 1.2rem;
+                z-index: 1051;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid" style="height: 100px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Close button for mobile fullscreen menu -->
+                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"></button>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Solutions
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="solutions-1.html">Clinical Treatments</a></li>
+                            <li><a class="dropdown-item" href="#">Hair Replacement</a></li>
+                            <li><a class="dropdown-item" href="#">Home Care Products</a></li>
+                            <li><a class="dropdown-item" href="#">Wigs & Hairpieces</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 1. Hero Section -->
+    <header class="hero-section text-white text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Transform Your Look: Luxurious Hair Extensions for Effortless Glamour</h1>
+            <div class="hero-links my-4">
+                <a href="#" class="text-white text-decoration-none mx-3">BOOK A CONSULTATION</a>
+                <!-- <a href="#" class="text-white text-decoration-none mx-3">VIEW OUR SHOP</a> -->
+                <a href="#" class="text-white text-decoration-none mx-3">CONTACT US</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Features Section -->
+    <section class="features-section bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <i class="fas fa-award fa-2x mb-2"></i>
+                    <p class="mb-0">MULTI-AWARD WINNING</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <i class="fas fa-clinic-medical fa-2x mb-2"></i>
+                    <p class="mb-0">NHS & HSE APPROVED</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-user-md fa-2x mb-2"></i>
+                    <p class="mb-0">DERMATOLOGIST TESTED</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Who We Help Section -->
+    <section class="who-we-help-section text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold">Who can we help?</h2>
+            <p class="lead mb-5">We are specialist Trichologists who diagnose and treat hair and scalp conditions for men, women & children.</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="./assets/img/help/men.jpg" class="img-fluid rounded-circle mb-3" alt="Men">
+                    <h4 class="fw-bold"><i class="fas fa-mars me-2"></i>MEN</h4>
+                    <p>We provide a variety of solutions for hair loss in men, including hair replacement systems and clinical treatments.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="./assets/img/help/women.jpg" class="img-fluid rounded-circle mb-3" alt="Women">
+                    <h4 class="fw-bold"><i class="fas fa-venus me-2"></i>WOMEN</h4>
+                    <p>Our award-winning services cater to women experiencing hair loss, offering compassionate care and effective solutions.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="./assets/img/help/child.jpg" class="img-fluid rounded-circle mb-3" alt="Children">
+                    <h4 class="fw-bold"><i class="fas fa-child me-2"></i>CHILDREN</h4>
+                    <p>We offer specialised, gentle treatments for children with hair and scalp conditions in a supportive environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Testimonials Section -->
+    <section class="testimonials-section text-center py-5">
+        <div class="container">
+            <h2 id="reviews-title" class="fw-bold">What our clients say</h2>
+            <p id="reviews-subtitle" class="lead mb-5">Read some of the lovely reviews our amazing clients have left for us and the new lease of life it comes with it.</p>
+            
+            <div id="reviews-container" class="masonry-grid">
+                <!-- Reviews will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- 5. Video Section -->
+    <section class="video-section text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold">Our Trichologist tells her story</h2>
+            <p class="lead mb-4">"Just like you, I have also suffered with my hair and I know exactly how you feel..."</p>
+            <div class="video-player bg-dark text-white d-flex align-items-center justify-content-center mb-4">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
+            </div>
+            <a href="#" class="btn btn-dark btn-lg">LEARN MORE</a>
+        </div>
+    </section>
+
+    <!-- 6. Solutions Section -->
+    <section class="solutions-section text-center py-5">
+        <div class="container">
+             <h2 class="fw-bold">Our Solutions</h2>
+             <p class="lead mb-5">We have a solution for you, no matter what your concern is.</p>
+             <div class="row g-4">
+                 <div class="col-md-6 col-lg-4">
+                     <div class="solution-item">
+                         <img src="./assets/img/what we do/hair-treatment.avif" class="img-fluid" alt="Clinical Treatments">
+                         <div class="solution-overlay"><h3>Hair & Scalp Treatment</h3></div>
+                     </div>
+                 </div>
+                 <div class="col-md-6 col-lg-4">
+                     <div class="solution-item">
+                         <img src="./assets/img/what we do/wig.avif" class="img-fluid" alt="Bespoke Wig Services">
+                         <div class="solution-overlay"><h3>Bespoke Wig Services</h3></div>
+                     </div>
+                 </div>
+                 <div class="col-md-6 col-lg-4">
+                     <div class="solution-item">
+                         <img src="./assets/img/what we do/restoratiom.avif" class="img-fluid" alt="Hair Restoration">
+                         <div class="solution-overlay"><h3>Hair Restoration</h3></div>
+                     </div>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- 7. As Seen In Section -->
+    <section class="as-seen-in-section text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4">As Seen In</h2>
+                <div class="owl-carousel as-seen-carousel align-items-center">
+                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+1" class="img-fluid" alt="Logo 1"></div>
+                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+2" class="img-fluid" alt="Logo 2"></div>
+                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+3" class="img-fluid" alt="Logo 3"></div>
+                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+4" class="img-fluid" alt="Logo 4"></div>
+                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+5" class="img-fluid" alt="Logo 5"></div>
+                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+6" class="img-fluid" alt="Logo 6"></div>
+                </div>
+        </div>
+    </section>
+    
+    <!-- 8. Articles Section -->
+    <section class="articles-section text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold">Our Articles</h2>
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0">
+                        <img src="https://images.unsplash.com/photo-1621253247548-528254191399?q=80&w=1887&auto=format&fit=crop" class="card-img-top rounded" alt="Article 1">
+                        <div class="card-body text-start px-0">
+                            <h5 class="card-title fw-bold">Understanding Androgenetic Alopecia</h5>
+                            <p class="card-text">A deep dive into the most common form of hair loss and the latest treatment options available.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0">
+                        <img src="https://images.unsplash.com/photo-1540420773420-2850a80b0e56?q=80&w=1887&auto=format&fit=crop" class="card-img-top rounded" alt="Article 2">
+                        <div class="card-body text-start px-0">
+                            <h5 class="card-title fw-bold">The Role of Diet in Hair Health</h5>
+                            <p class="card-text">Discover which vitamins and minerals are crucial for maintaining strong, healthy hair.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0">
+                        <img src="https://images.unsplash.com/photo-1605980614838-6e54f762f22e?q=80&w=1887&auto=format&fit=crop" class="card-img-top rounded" alt="Article 3">
+                        <div class="card-body text-start px-0">
+                            <h5 class="card-title fw-bold">Top 5 Scalp Care Tips from a Trichologist</h5>
+                            <p class="card-text">Learn how to properly care for your scalp to promote optimal hair growth and prevent issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>HairLoss Rehab</h5>
+                    <p class="pe-lg-4">
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men, women, and children.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Our Solutions</a></li>
+                        <li class="mb-2"><a href="#">Client Reviews</a></li>
+                        <li class="mb-2"><a href="#">Shop Products</a></li>
+                        <li class="mb-2"><a href="#">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Clinic Street, Belfast, NI</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(028) 1234 5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@hairlossrehab.co.uk</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Newsletter</h5>
+                    <p>Subscribe for the latest news and offers.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                            <button class="btn btn-primary" type="button">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center py-3">
+            <small>&copy; 2024 HairLoss Rehab. All Rights Reserved.</small>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewsData = {
+                "pageTitle": "What our clients say",
+                "subTitle": "Read some of the lovely reviews our amazing clients have left for us and the new lease of life it comes with it.",
+                "reviews": [{
+                    "id": 1,
+                    "source": "Google",
+                    "rating": 5,
+                    "reviewText": "I was in on Friday to have my first ever wig fitted and styled. I was very apprehensive and emotional about it but Nadine put me at ease right away and took time and care to ensure it was styled as I needed. Now I have a renewed confidence to go out and face the world again! Love that this is all done inside a booth away from all the customers with their lovely, long and healthy heads of hair ❤️",
+                    "author": {
+                        "name": "Hilary Greer",
+                        "avatarInitial": "H"
+                    },
+                    "date": "October 23, 2023"
+                }, {
+                    "id": 2,
+                    "source": "Google",
+                    "rating": 5,
+                    "reviewText": "Was nervous today before getting my hair parting system in place. I needn't have worried. Caitlin and Tai were completely professional, very welcoming and did a great job with my hair, and, with putting me at ease. 1st class service. Would highly recommend!",
+                    "author": {
+                        "name": "Charlotte Bell",
+                        "avatarInitial": "C"
+                    },
+                    "date": "October 2, 2023"
+                }, {
+                    "id": 3,
+                    "source": "Google",
+                    "rating": 5,
+                    "reviewText": "If you have any form of hair loss please contact this salon. I've had hair loss for over 20 years and have had to use a hair topper, but I found going through the menopause my hair got worse leaving me with bald spots and very thin on top. Meeting Sarah and her team was an absolute delight, not only have they transformed my hair, they have given me back my confidence with this new CNC Hair System. So ladies please don't suffer in silence it only takes a call to change your well being and your HAIR.",
+                    "author": {
+                        "name": "C Mcgarry",
+                         "avatarInitial": "C"
+                    },
+                    "date": "September 29, 2023"
+                }, {
+                    "id": 4,
+                    "source": "Google",
+                    "rating": 5,
+                    "reviewText": "Soo delighted with my experience with Sarah, Tai and the rest of the team at Hair Loss Rehab. From the quality of the hair products down to the cappuccinos they serve you here... everything is top notch. I cannot recommend Sarah and the team enough. They are so welcoming. I have been given a new lease of life, since I received my hair integration system. I feel 10 years younger. They are absolute miracle workers here. They are also very discreet with their private room. I cannot thank you all enough. Looking forward to seeing you all again on Saturday. ❤️",
+                    "author": {
+                        "name": "Siobhan Keane",
+                        "avatarInitial": "S"
+                    },
+                    "date": "September 21, 2023"
+                }, {
+                    "id": 5,
+                    "source": "Google",
+                    "rating": 5,
+                    "reviewText": "I've been going to La Bella Vita for about 5 yrs. My experience has always been fantastic. All the girls and Ben make u feel very welcome and nothing is to much trouble. If there's anyone out there suffering from hair loss this is the place to come. U will be amazed at the expertise and will come away wishing you had of found this salon years ago. From 1 very satisfied customer. J W.",
+                    "author": {
+                        "name": "Joyce Weyl",
+                        "avatarInitial": "J"
+                    },
+                    "date": "September 26, 2023"
+                }, {
+                    "id": 6,
+                    "source": "Google",
+                    "rating": 5,
+                    "reviewText": "What can I say? Sarah is simply amazing! Her knowledge and expertise on hair loss is outstanding. Her team are so talented, friendly and very professional. I love going to my appointments because no matter who you are dealing with you are made to feel so comfortable and special and leave La Bella Vita feeling incredible!!",
+                    "author": {
+                        "name": "Kerrie Mccrory",
+                        "avatarInitial": "K"
+                    },
+                    "date": "September 20, 2023"
+                }]
+            };
+
+            const reviewsContainer = document.getElementById('reviews-container');
+            
+            // Function to render reviews
+            function renderReviews() {
+                // Update titles
+                document.getElementById('reviews-title').textContent = reviewsData.pageTitle;
+                document.getElementById('reviews-subtitle').textContent = reviewsData.subTitle;
+
+                if (!reviewsContainer) return;
+                reviewsContainer.innerHTML = ''; // Clear existing reviews
+                
+                const backgroundColors = ['#28a745', '#17a2b8', '#dc3545', '#ffc107', '#007bff', '#6610f2'];
+
+                reviewsData.reviews.forEach((review, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'masonry-item';
+
+                    const stars = Array(review.rating).fill('<i class="fas fa-star"></i>').join('');
+
+                    const avatarColor = backgroundColors[index % backgroundColors.length];
+                    const avatar = review.author.avatarUrl ?
+                        `<img src="${review.author.avatarUrl}" alt="${review.author.name}">` :
+                        `<div class="avatar text-white" style="background-color: ${avatarColor};">${review.author.avatarInitial || review.author.name.charAt(0)}</div>`;
+                    
+                    item.innerHTML = `
+                        <div class="card review-card">
+                            <div class="card-body">
+                                <div>
+                                    <div class="stars text-warning mb-2">${stars}</div>
+                                    <i class="fab fa-google google-icon"></i>
+                                    <p class="card-text">"${review.reviewText}"</p>
+                                </div>
+                                <div class="reviewer d-flex align-items-center mt-3">
+                                    ${avatar}
+                                    <div class="ms-2 text-start">
+                                        <span class="d-block">${review.author.name}</span>
+                                        <small class="text-muted">${review.date}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    reviewsContainer.appendChild(item);
+                });
+            }
+
+            // Initial render
+            renderReviews();
+        });
+    </script>
+
+        <script>
+            // Initialize Owl Carousel after DOM ready
+            $(document).ready(function(){
+                if ($('.as-seen-carousel').length) {
+                    $('.as-seen-carousel').owlCarousel({
+                        loop: true,
+                        margin: 20,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoplayHoverPause: true,
+                        responsive: {
+                            0: { items: 2 },
+                            576: { items: 3 },
+                            768: { items: 4 },
+                            992: { items: 5 },
+                            1200: { items: 6 }
+                        }
+                    });
+                }
+            });
+        </script>
+</body>
+</html>
+

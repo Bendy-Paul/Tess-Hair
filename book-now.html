@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now | HairLoss Rehab</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* General Body & Font Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #fdfaf3; /* Creamy beige background */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #333 !important;
+        }
+        .navbar .nav-link {
+            color: #333 !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .navbar .nav-link:hover, .navbar .nav-link.active {
+            color: #c5a47e !important;
+        }
+        .navbar .btn-primary, .btn-primary {
+             background-color: #2b2b2b;
+             border-color: #2b2b2b;
+             font-weight: 600;
+        }
+        .navbar .btn-primary:hover, .btn-primary:hover {
+            background-color: #444;
+            border-color: #444;
+        }
+        
+        /* Smooth Dropdown Transition for Desktop */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu.show {
+            animation: fadeInDown 0.3s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Page Specific Styles */
+        
+        /* 1. Page Header */
+        .page-header {
+            position: relative;
+            padding: 8rem 0;
+            background: url('https://images.unsplash.com/photo-1554774853-add091d36952?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+        }
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 2. Booking Section */
+        .booking-card {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.08);
+        }
+        .booking-step {
+            margin-bottom: 2.5rem;
+        }
+        .booking-step h4 {
+            border-bottom: 2px solid #fceef2;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .service-card {
+            border: 1px solid #eee;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card.selected, .service-card:hover {
+            border-color: #c5a47e;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.06);
+        }
+        
+        /* Custom Calendar Styles */
+        .calendar {
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        #month-year {
+            font-weight: 600;
+        }
+        #prev-month, #next-month {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        .calendar-day, .calendar-date {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .calendar-day {
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .calendar-date {
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .calendar-date:not(.disabled):hover {
+            background-color: #fceef2;
+        }
+        .calendar-date.today {
+            font-weight: bold;
+            color: #c5a47e;
+        }
+        .calendar-date.selected {
+            background-color: #2b2b2b;
+            color: #fff;
+        }
+        .calendar-date.disabled {
+            color: #adb5bd;
+            cursor: not-allowed;
+        }
+
+        .time-slot {
+            display: inline-block;
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.25rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+        }
+        .time-slot:hover {
+            background-color: #fceef2;
+        }
+        .time-slot.selected {
+            background-color: #2b2b2b;
+            color: #fff;
+            border-color: #2b2b2b;
+        }
+        .time-slot.disabled {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+            color: #adb5bd;
+            border-color: #e9ecef;
+            text-decoration: line-through;
+        }
+
+
+        .form-control {
+            border: 1px solid #ddd;
+            padding: 0.75rem 1rem;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(197, 164, 126, 0.25);
+            border-color: #c5a47e;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2b2b2b;
+            color: #f8f9fa;
+        }
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .footer .footer-bottom {
+            border-top: 1px solid #444;
+        }
+
+        /* Fullscreen Modal Navigation for Medium and Small Screens */
+        @media (max-width: 991.98px) {
+            .navbar .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #fdfaf3; /* Match body background */
+                z-index: 1050;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                /* Override Bootstrap's inline style for transition */
+                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .navbar .navbar-collapse.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Override Bootstrap's default hiding to allow for transition */
+            .navbar .navbar-collapse.collapse:not(.show) {
+                display: flex; /* Keep as flex to allow transition */
+            }
+
+            .navbar-collapse .navbar-nav {
+                margin-left: 0 !important;
+            }
+
+            .navbar-collapse .nav-item {
+                margin: 0.75rem 0;
+            }
+
+            .navbar-collapse .nav-link {
+                font-size: 1.75rem; /* Larger font for modal view */
+            }
+             .navbar-collapse .dropdown-menu {
+                text-align: center;
+                border: none;
+                background-color: transparent;
+                box-shadow: none;
+                display: block;
+                width: 100%;
+                animation: none;
+                max-height: 0;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease-in-out;
+            }
+            .navbar-collapse .dropdown-item {
+                font-size: 1.25rem;
+                color: #555;
+                padding: 0.5rem 1rem;
+            }
+            
+            .navbar-collapse .dropdown-menu.show {
+                transform: none;
+                max-height: 250px; /* Adjust to fit all items */
+                margin-top: 0.5rem;
+            }
+
+            .navbar-collapse .btn-primary {
+               padding: 0.75rem 2rem;
+               font-size: 1.25rem;
+            }
+
+            .navbar-collapse .btn-close {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                font-size: 1.2rem;
+                z-index: 1051;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid" style="height: 100px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Close button for mobile fullscreen menu -->
+                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"></button>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Solutions
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="solutions-1.html">Clinical Treatments</a></li>
+                            <li><a class="dropdown-item" href="#">Hair Replacement</a></li>
+                            <li><a class="dropdown-item" href="#">Home Care Products</a></li>
+                            <li><a class="dropdown-item" href="#">Wigs & Hairpieces</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Book Your Consultation</h1>
+            <p class="lead col-lg-8 mx-auto">Take the first confidential step towards your hair restoration journey. Our specialists are ready to help.</p>
+        </div>
+    </header>
+    
+    <!-- 2. Booking Section -->
+    <section class="booking-section py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="booking-card">
+                        <form>
+                            <!-- Step 1: Select Service -->
+                            <div class="booking-step">
+                                <h4>1. Select a Service</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="service-card text-center" onclick="selectService(this)">
+                                            <h6 class="fw-bold">Initial Consultation</h6>
+                                            <p class="text-muted mb-0 small">60 mins</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="service-card text-center" onclick="selectService(this)">
+                                            <h6 class="fw-bold">Follow-Up Appointment</h6>
+                                            <p class="text-muted mb-0 small">30 mins</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Choose Date & Time -->
+                            <div class="booking-step">
+                                <h4>2. Choose Date & Time</h4>
+                                 <!-- Hidden input to store selected date -->
+                                <input type="hidden" id="selected-date" name="selected-date">
+                                <!-- Custom Calendar -->
+                                <div class="calendar mb-4">
+                                    <div class="calendar-header">
+                                        <button type="button" id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                                        <h5 id="month-year" class="mb-0"></h5>
+                                        <button type="button" id="next-month"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="calendar-grid">
+                                        <div class="calendar-day">Sun</div>
+                                        <div class="calendar-day">Mon</div>
+                                        <div class="calendar-day">Tue</div>
+                                        <div class="calendar-day">Wed</div>
+                                        <div class="calendar-day">Thu</div>
+                                        <div class="calendar-day">Fri</div>
+                                        <div class="calendar-day">Sat</div>
+                                    </div>
+                                    <div class="calendar-grid" id="calendar-dates">
+                                        <!-- Dates will be generated here -->
+                                    </div>
+                                </div>
+
+                                <div id="time-slots-container" class="row g-2">
+                                    <!-- Time slots will be generated here -->
+                                </div>
+                                <p id="time-slots-message" class="text-muted mt-3">Please select a date to see available times.</p>
+                            </div>
+                            
+                            <!-- Step 3: Your Details -->
+                            <div class="booking-step">
+                                <h4>3. Your Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary w-100 btn-lg">Confirm Booking</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>HairLoss Rehab</h5>
+                    <p class="pe-lg-4">
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men, women, and children.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Our Solutions</a></li>
+                        <li class="mb-2"><a href="#">Client Reviews</a></li>
+                        <li class="mb-2"><a href="#">Shop Products</a></li>
+                        <li class="mb-2"><a href="#">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Clinic Street, Belfast, NI</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(028) 1234 5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@hairlossrehab.co.uk</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Newsletter</h5>
+                    <p>Subscribe for the latest news and offers.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                            <button class="btn btn-primary" type="button">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center py-3">
+            <small>&copy; 2024 HairLoss Rehab. All Rights Reserved.</small>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const monthYearEl = document.getElementById('month-year');
+            const datesEl = document.getElementById('calendar-dates');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const hiddenDateInput = document.getElementById('selected-date');
+            
+            let currentDate = new Date();
+            currentDate.setDate(1); // Set to the first day of the month to avoid month-end issues
+
+            const renderCalendar = () => {
+                const month = currentDate.getMonth();
+                const year = currentDate.getFullYear();
+                
+                monthYearEl.textContent = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(currentDate);
+                
+                datesEl.innerHTML = '';
+
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                // Add empty placeholders for days before the 1st
+                for (let i = 0; i < firstDayOfMonth; i++) {
+                    datesEl.innerHTML += `<div class="calendar-date"></div>`;
+                }
+
+                const today = new Date();
+                
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateEl = document.createElement('div');
+                    dateEl.className = 'calendar-date';
+                    dateEl.textContent = day;
+
+                    const thisDate = new Date(year, month, day);
+
+                    // Disable past dates
+                    if (thisDate < today && thisDate.toDateString() !== today.toDateString()) {
+                        dateEl.classList.add('disabled');
+                    } else {
+                        dateEl.addEventListener('click', () => {
+                            // Update hidden input
+                            const selectedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                            hiddenDateInput.value = selectedDate;
+
+                            // Update visual selection
+                            document.querySelectorAll('.calendar-date').forEach(d => d.classList.remove('selected'));
+                            dateEl.classList.add('selected');
+
+                            // Trigger time slot generation
+                            generateAvailableTimes(selectedDate);
+                        });
+                    }
+
+                    if (thisDate.toDateString() === today.toDateString()) {
+                        dateEl.classList.add('today');
+                    }
+
+                    datesEl.appendChild(dateEl);
+                }
+            };
+            
+            prevMonthBtn.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+            nextMonthBtn.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+
+            renderCalendar();
+
+            // --- Time Slot Generation Logic ---
+            const existingBookings = {
+                "2025-10-20": ["09:00", "14:00"],
+                "2025-10-21": ["11:00"],
+                "2025-10-22": ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00"] // Fully booked
+            };
+
+            const allTimeSlots = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00"];
+            const timeSlotsContainer = document.getElementById('time-slots-container');
+            const timeSlotsMessage = document.getElementById('time-slots-message');
+
+            function generateAvailableTimes(selectedDate) {
+                timeSlotsContainer.innerHTML = '';
+                
+                const dayOfWeek = new Date(selectedDate).getUTCDay();
+
+                if (dayOfWeek === 0) {
+                    timeSlotsMessage.textContent = 'Sorry, we are closed on Sundays. Please select another date.';
+                    return;
+                }
+                
+                const bookedSlots = existingBookings[selectedDate] || [];
+                const availableSlots = allTimeSlots.filter(slot => !bookedSlots.includes(slot));
+
+                if (availableSlots.length === 0) {
+                     timeSlotsMessage.textContent = 'Sorry, there are no available slots for this date. Please select another.';
+                } else {
+                    timeSlotsMessage.textContent = 'Please select an available time below.';
+                    availableSlots.forEach(slot => {
+                        const col = document.createElement('div');
+                        col.className = 'col-4 col-sm-3 col-md-2';
+                        
+                        const slotDiv = document.createElement('div');
+                        slotDiv.className = 'time-slot';
+                        slotDiv.textContent = slot;
+                        slotDiv.onclick = () => selectTime(slotDiv);
+                        
+                        col.appendChild(slotDiv);
+                        timeSlotsContainer.appendChild(col);
+                    });
+                }
+            }
+        });
+
+
+        function selectService(element) {
+            document.querySelectorAll('.service-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function selectTime(element) {
+            if (element.classList.contains('disabled')) return;
+            document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
+

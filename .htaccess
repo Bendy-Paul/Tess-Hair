@@ -1,0 +1,25 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect requests for .html URLs to extensionless canonical URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Rewrite extensionless URLs to their .html counterparts
+# e.g. /about -> /about.html
+RewriteRule ^$ index.html [L]
+RewriteRule ^about$ about.html [L]
+RewriteRule ^book-now$ book-now.html [L]
+RewriteRule ^contact$ contact-us.html [L]
+RewriteRule ^shop$ shop.html [L]
+RewriteRule ^clinical-treatments$ clinical-treatments.html [L]
+RewriteRule ^solutions-1$ solutions-1.html [L]
+
+# Fallback: try to serve requested path with .html appended
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/?$ $1.html [L]
