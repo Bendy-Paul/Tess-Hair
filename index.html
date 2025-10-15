@@ -23,6 +23,18 @@
     
     <!-- Custom CSS -->
     <style>
+        /* Fade-in Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* General Body & Font Styles */
         body {
             font-family: 'Montserrat', sans-serif;
@@ -458,14 +470,15 @@
                             Solutions
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="solutions-1.html">Clinical Treatments</a></li>
-                            <li><a class="dropdown-item" href="#">Hair Replacement</a></li>
-                            <li><a class="dropdown-item" href="#">Home Care Products</a></li>
-                            <li><a class="dropdown-item" href="#">Wigs & Hairpieces</a></li>
+                            <li><a class="dropdown-item" href="./solutions-1">Clinical Treatments</a></li>
+                            <li><a class="dropdown-item" href="./hair-replacement">Hair Replacement</a></li>
+                            <li><a class="dropdown-item" href="./home-care-products">Home Care Products</a></li>
+                            <li><a class="dropdown-item" href="./wigs-hairpieces">Wigs & Hairpieces</a></li>
+                            <li><a class="dropdown-item" href="./prp-hairloss">PRP Hairloss</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contact-us.html">Contact</a>
+                        <a class="nav-link" href="./contact-us">Contact</a>
                     </li>
                 </ul>
                 <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
@@ -476,19 +489,20 @@
 
     <!-- 1. Hero Section -->
     <header class="hero-section text-white text-center">
-        <div class="container">
+        <div class="container mt-4">
+            <br><br><br><br>
             <h1 class="display-4 fw-bold">Transform Your Look: Luxurious Hair Extensions for Effortless Glamour</h1>
             <div class="hero-links my-4">
-                <a href="#" class="text-white text-decoration-none mx-3">BOOK A CONSULTATION</a>
-                <a href="#" class="text-white text-decoration-none mx-3">CONTACT US</a>
-                <br><br>
-                <a href="#" class="btn btn-glass rounded-pill px-4 py-2 mt-4">LEARN MORE <i class="fa fa-arrow-right"></i></a>
+                <a href="./book-now" class="text-white text-decoration-none mx-3">BOOK A CONSULTATION</a>
+                <a href="./contact-us" class="text-white text-decoration-none mx-3">CONTACT US</a>
+                <br><br><br>
+                <a href="./about" class="btn btn-glass rounded-pill px-4 py-2 mt-4">LEARN MORE <i class="fa fa-arrow-right"></i></a>
             </div>
         </div>
     </header>
 
     <!-- 2. Features Section -->
-    <section class="features-section bg-dark text-white text-center py-5">
+    <section class="features-section bg-dark text-white text-center py-5 fade-in-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3 mb-md-0">
@@ -508,32 +522,27 @@
     </section>
 
     <!-- 3. Who We Help Section -->
-    <section class="who-we-help-section text-center py-5">
+    <section class="who-we-help-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold">Who can we help?</h2>
             <p class="lead mb-5">We are specialist Trichologists who diagnose and treat hair and scalp conditions for men, and women.</p>
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-6 mb-4">
                     <img src="./assets/img/help/men.jpg" class="img-fluid rounded-circle mb-3" alt="Men">
                     <h4 class="fw-bold"><i class="fas fa-mars me-2"></i>MEN</h4>
                     <p>We provide a variety of solutions for hair loss in men, including hair replacement systems and clinical treatments.</p>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-6 mb-4">
                     <img src="./assets/img/help/women.jpg" class="img-fluid rounded-circle mb-3" alt="Women">
                     <h4 class="fw-bold"><i class="fas fa-venus me-2"></i>WOMEN</h4>
                     <p>Our award-winning services cater to women experiencing hair loss, offering compassionate care and effective solutions.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="./assets/img/help/child.jpg" class="img-fluid rounded-circle mb-3" alt="Children">
-                    <h4 class="fw-bold"><i class="fas fa-child me-2"></i>CHILDREN</h4>
-                    <p>We offer specialised, gentle treatments for children with hair and scalp conditions in a supportive environment.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 4. Testimonials Section -->
-    <section class="testimonials-section text-center py-5">
+    <section class="testimonials-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 id="reviews-title" class="fw-bold">What our clients say</h2>
             <p id="reviews-subtitle" class="lead mb-5">Read some of the lovely reviews our amazing clients have left for us and the new lease of life it comes with it.</p>
@@ -545,7 +554,7 @@
     </section>
     
     <!-- 5. Video Section -->
-    <section class="video-section text-center py-5">
+    <section class="video-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold">Our Trichologist tells her story</h2>
             <p class="lead mb-4">"Just like you, I have also suffered with my hair and I know exactly how you feel..."</p>
@@ -557,7 +566,7 @@
     </section>
 
     <!-- 6. Solutions Section -->
-    <section class="solutions-section text-center py-5">
+    <section class="solutions-section text-center py-5 fade-in-section">
         <div class="container">
              <h2 class="fw-bold">Our Solutions</h2>
              <p class="lead mb-5">We have a solution for you, no matter what your concern is.</p>
@@ -585,7 +594,7 @@
     </section>
 
     <!-- 7. As Seen In Section -->
-    <section class="as-seen-in-section text-center py-5">
+    <section class="as-seen-in-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold mb-4">As Seen In</h2>
                 <div class="owl-carousel as-seen-carousel align-items-center">
@@ -600,7 +609,7 @@
     </section>
     
     <!-- 8. Articles Section -->
-    <section class="articles-section text-center py-5">
+    <section class="articles-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold">Our Articles</h2>
             <div class="row mt-4">
@@ -642,7 +651,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>Tess Hair & Scalp Clinic</h5>
                     <p class="pe-lg-4">
-                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men, women, and children.
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men and women.
                     </p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -700,6 +709,7 @@
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {

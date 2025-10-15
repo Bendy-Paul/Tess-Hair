@@ -1,90 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | Tess Hair & Scalp Clinic</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wigs & Hairpieces | Tess Hair & Scalp Clinic</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <style>
         /* General Body & Font Styles */
         body {
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #333;
-            background-color: #fdfaf3;
-            /* Creamy beige background */
+            background-color: #fdfaf3; /* Creamy beige background */
         }
 
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
         }
 
         /* Header */
         .navbar {
             background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-
         .navbar-brand {
             font-weight: 700;
             color: #333 !important;
         }
-
         .navbar .nav-link {
             color: #333 !important;
             font-weight: 600;
             transition: color 0.3s ease;
         }
-
-        .navbar .nav-link:hover,
-        .navbar .nav-link.active {
+        .navbar .nav-link:hover, .navbar .nav-link.active {
             color: #c5a47e !important;
         }
-
         .navbar .btn-primary {
-            background-color: #2b2b2b;
-            border-color: #2b2b2b;
-            font-weight: 600;
+             background-color: #2b2b2b;
+             border-color: #2b2b2b;
+             font-weight: 600;
         }
-
         .navbar .btn-primary:hover {
             background-color: #444;
             border-color: #444;
         }
-
+        
         /* Smooth Dropdown Transition for Desktop */
         .dropdown-menu {
             border: none;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
             border-radius: 0.5rem;
             margin-top: 0.5rem;
         }
@@ -98,102 +73,90 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* About Page Specific Styles */
-
+        /* Page Specific Styles */
+        
         /* 1. Page Header */
         .page-header {
             position: relative;
             padding: 8rem 0;
-            background: url("https://static.wixstatic.com/media/c03160_4306261814294d8da1436161f2a3b27c~mv2.jpg/v1/fill/w_1901,h_764,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c03160_4306261814294d8da1436161f2a3b27c~mv2.jpg") no-repeat center center/cover;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
             color: #fff;
             text-align: center;
         }
-
         .page-header::after {
-            content: "";
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.55);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
         }
-
         .page-header .container {
             position: relative;
             z-index: 2;
         }
 
-        /* 2. Our Story Section */
-        .our-story-section {
+        /* 2. Intro Section */
+        .intro-section {
             background-color: #fff;
         }
-
-        .our-story-section img {
+        .intro-section img {
             border-radius: 0.5rem;
             object-fit: cover;
             height: 100%;
         }
-
-        /* 3. Meet the Team Section */
-        .team-member-card {
-            border: none;
+        
+        /* 3. Treatments Section */
+        .treatment-item {
+            background-color: #fff;
+            padding: 2.5rem 2rem;
             border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.07);
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
         }
-
-        .team-member-card:hover {
+        .treatment-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,0.08);
         }
-
-        .team-member-card .card-body {
-            background-color: #fff;
-        }
-
-        .team-member-card .team-socials a {
-            color: #333;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .team-member-card .team-socials a:hover {
+        .treatment-item .icon {
+            font-size: 2.5rem;
             color: #c5a47e;
-        }
-
-        /* 4. Our Philosophy Section */
-        .philosophy-section {
+            margin-bottom: 1.5rem;
+            display: inline-block;
             background-color: #fceef2;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
         }
 
-        .philosophy-item {
+        /* 4. FAQ Section */
+        .faq-section .accordion-item {
             background-color: #fff;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .philosophy-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .philosophy-item .icon {
-            font-size: 3rem;
-            color: #c5a47e;
+            border: 1px solid #eee;
+            border-radius: 0.5rem !important;
             margin-bottom: 1rem;
         }
-
+        .faq-section .accordion-button {
+            font-weight: 600;
+            color: #333;
+        }
+        .faq-section .accordion-button:not(.collapsed) {
+            background-color: #fceef2;
+            box-shadow: none;
+            color: #2b2b2b;
+        }
+        .faq-section .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        
         /* 5. CTA Section */
         .cta-section {
             background: linear-gradient(45deg, #2b2b2b, #444);
@@ -205,27 +168,22 @@
             background-color: #2b2b2b;
             color: #f8f9fa;
         }
-
         .footer h5 {
             color: #fff;
             margin-bottom: 1.5rem;
         }
-
         .footer a {
             color: #adb5bd;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         .footer a:hover {
             color: #fff;
         }
-
         .footer .social-icons a {
             font-size: 1.5rem;
             margin-right: 1rem;
         }
-
         .footer .footer-bottom {
             border-top: 1px solid #444;
         }
@@ -238,10 +196,9 @@
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                background-color: #fdfaf3;
-                /* Match body background */
+                background-color: #fdfaf3; /* Match body background */
                 z-index: 1050;
-
+                
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -260,8 +217,7 @@
 
             /* Override Bootstrap's default hiding to allow for transition */
             .navbar .navbar-collapse.collapse:not(.show) {
-                display: flex;
-                /* Keep as flex to allow transition */
+                display: flex; /* Keep as flex to allow transition */
             }
 
             .navbar-collapse .navbar-nav {
@@ -273,11 +229,9 @@
             }
 
             .navbar-collapse .nav-link {
-                font-size: 1.75rem;
-                /* Larger font for modal view */
+                font-size: 1.75rem; /* Larger font for modal view */
             }
-
-            .navbar-collapse .dropdown-menu {
+             .navbar-collapse .dropdown-menu {
                 text-align: center;
                 border: none;
                 background-color: transparent;
@@ -291,23 +245,21 @@
                 overflow: hidden;
                 transition: max-height 0.35s ease-in-out;
             }
-
             .navbar-collapse .dropdown-item {
                 font-size: 1.25rem;
                 color: #555;
                 padding: 0.5rem 1rem;
             }
-
+            
             .navbar-collapse .dropdown-menu.show {
                 transform: none;
-                max-height: 250px;
-                /* Adjust to fit all items */
+                max-height: 250px; /* Adjust to fit all items */
                 margin-top: 0.5rem;
             }
 
             .navbar-collapse .btn-primary {
-                padding: 0.75rem 2rem;
-                font-size: 1.25rem;
+               padding: 0.75rem 2rem;
+               font-size: 1.25rem;
             }
 
             .navbar-collapse .btn-close {
@@ -320,7 +272,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -334,16 +285,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Close button for mobile fullscreen menu -->
                 <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"></button>
-
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="./">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./about">About</a>
+                        <a class="nav-link" href="./about">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Solutions
                         </a>
                         <ul class="dropdown-menu">
@@ -366,131 +316,106 @@
     <!-- 1. Page Header -->
     <header class="page-header">
         <div class="container">
-            <h1 class="display-4 fw-bold">About Tess Hair & Scalp Clinic</h1>
-            <p class="lead col-lg-8 mx-auto">
-                Learn about our journey, our dedicated team, and the values that drive
-                us to provide the best hair loss solutions in Northern Ireland.
-            </p>
+            <h1 class="display-4 fw-bold">Wigs & Hairpieces</h1>
+            <p class="lead col-lg-8 mx-auto">Content for Wigs & Hairpieces page.</p>
         </div>
     </header>
-
-    <!-- 2. Our Story Section -->
-    <section class="fade-in-section our-story-section py-5">
+    
+    <!-- 2. Intro Section -->
+    <section class="fade-in-section intro-section py-5">
         <div class="container py-4">
             <div class="row align-items-center g-5">
-                <div class="col-lg-4">
-                    <img src="./assets/img/about-us/about-us-1.png"
-                        class="img-fluid shadow-lg" alt="Founder of Tess Hair & Scalp Clinic" style="height:30rem" />
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3">Content for Wigs & Hairpieces page.</h2>
+                    <p class="text-muted">Content for Wigs & Hairpieces page.</p>
+                    <p class="text-muted">Content for Wigs & Hairpieces page.</p>
                 </div>
+                <div class="col-lg-6">
+                    <img src="https://via.placeholder.com/600x400" class="img-fluid shadow-lg" alt="Wigs & Hairpieces">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Treatments We Offer Section -->
+    <section class="fade-in-section treatments-section py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Content for Wigs & Hairpieces page.</h2>
+                <p class="lead text-muted">Content for Wigs & Hairpieces page.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="treatment-item">
+                        <div class="icon"><i class="fas fa-cut"></i></div>
+                        <h5 class="fw-bold">Content for Wigs & Hairpieces page.</h5>
+                        <p class="text-muted">Content for Wigs & Hairpieces page.</p>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="treatment-item">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <h5 class="fw-bold">Content for Wigs & Hairpieces page.</h5>
+                        <p class="text-muted">Content for Wigs & Hairpieces page.</p>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="treatment-item">
+                        <div class="icon"><i class="fas fa-user-tie"></i></div>
+                        <h5 class="fw-bold">Content for Wigs & Hairpieces page.</h5>
+                        <p class="text-muted">Content for Wigs & Hairpieces page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FAQ Section -->
+    <section class="fade-in-section faq-section py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Frequently Asked Questions</h2>
+                <p class="lead text-muted">Content for Wigs & Hairpieces page.</p>
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-3">About Us</h2>
-                    <p class="text-muted">
-                        Tess Hair & Scalp Clinic takes pride in delivering exceptional
-                        service and ensuring every client leaves completely satisfied. We
-                        are dedicated to providing high-quality treatments and elite
-                        customer care, helping you achieve healthy, beautiful hair from
-                        the roots up. Our specialized scalp and hair treatments are
-                        designed to rejuvenate, repair, and restore the natural balance of
-                        your hair and scalp. Whether you’re dealing with hair loss,
-                        dandruff, scalp irritation, or simply want to enhance your hair’s
-                        health and shine, our team of qualified trichology experts is here
-                        to guide you every step of the way. At Tess Hair & Scalp Clinic,
-                        your confidence begins with healthy hair.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Meet the Team Section -->
-    <section class="fade-in-section meet-the-team-section py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Our Story: A Passion for Restoration</h2>
-                <p class="lead text-muted">
-                    A team of passionate, certified experts dedicated to your hair
-                    health.
-                </p>
-            </div>
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-3">Our Founder</h2>
-                    <p class="text-muted">
-                        Theresa Anthony, CiRT, ITEC, ART - ( Association of Registered Trichologists)​
-
-                        ​
-
-                        Theresa, founder of Tess Hair & Scalp Clinic in Belfast, Ireland, is a certified trichologist
-                        who has trained with TrichoCare Education, one of the leading trichology institutions in the
-                        U.K, and the first one to offer an accredited trichology course in the U.K. Theresa has been in
-                        the hair industry for over 15 years, having trained and worked in Italy, France, and the U.K.
-                        She is a master of undetectable hair systems, giving confidence to those affected by hair loss.
-
-                        ​
-
-                        Theresa is trained and qualified in providing a number of scalp and hair loss treatments,
-                        including but not limited to:
-
-                        ​
-                        <ul>
-                            <li class="mb-3">Microneedling, which stimulates the process of wound healing thereby encouraging hair regrowth.</li>
-                            <li class="mb-3">Keratolytic scalp treatments for scaly scalp conditions such as seborrhoeic dermatitis, psoriasis, and pityriasis amiantacea.</li>
-                            <li class="mb-3">LLLT (low-level laser/light therapy) which has shown great success in some hair loss patients.</li>
-                        </ul>
-
-                        <p class="mt-4">
-                            Theresa also has a special interest in scalp and hair loss conditions which afflict people with
-                            darker skin tones and textured hair and is continuously educating herself on the subject,
-                            keeping abreast of the latest research and findings.
-                        </p></p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="./assets/img/founder.avif" class="img-fluid shadow-lg rounded"
-                        alt="Founder of Tess Hair & Scalp Clinic" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Our Philosophy Section -->
-    <section class="fade-in-section philosophy-section py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Our Philosophy</h2>
-                <p class="lead text-muted">
-                    The core values that guide our approach to every client.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="philosophy-item text-center">
-                        <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
-                        <h5 class="fw-bold">Compassionate Care</h5>
-                        <p class="text-muted">
-                            We provide a supportive, judgment-free environment where your
-                            comfort and emotional well-being are our top priorities.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="philosophy-item text-center">
-                        <div class="icon"><i class="fas fa-lightbulb"></i></div>
-                        <h5 class="fw-bold">Innovative Solutions</h5>
-                        <p class="text-muted">
-                            We are committed to continuous learning and investing in the
-                            latest technologies to offer the most effective treatments
-                            available.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="philosophy-item text-center">
-                        <div class="icon"><i class="fas fa-user-shield"></i></div>
-                        <h5 class="fw-bold">Absolute Discretion</h5>
-                        <p class="text-muted">
-                            Your privacy is paramount. All consultations and services are
-                            conducted in private rooms to ensure complete confidentiality.
-                        </p>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Question 1
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Answer 1
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Question 2
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Answer 2
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Question 3
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Answer 3
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -500,12 +425,9 @@
     <!-- 5. CTA Section -->
     <section class="fade-in-section cta-section text-center py-5">
         <div class="container">
-            <h2 class="fw-bold">Ready to Start Your Journey?</h2>
-            <p class="lead my-3 col-lg-8 mx-auto">
-                Take the first step towards renewed confidence. Our compassionate
-                experts are here to listen and guide you towards the perfect solution.
-            </p>
-            <a href="./book-now" class="btn btn-light btn-lg mt-3">Book a Private Consultation</a>
+            <h2 class="fw-bold">Ready to learn more?</h2>
+            <p class="lead my-3 col-lg-8 mx-auto">Contact us today for a consultation.</p>
+            <a href="#" class="btn btn-light btn-lg mt-3">Schedule Your Consultation</a>
         </div>
     </section>
 
@@ -514,12 +436,9 @@
         <div class="container pb-5">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5 class="text-uppercase">
-                        <i class="fas fa-cut me-2"></i>Tess Hair & Scalp Clinic
-                    </h5>
+                    <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>Tess Hair & Scalp Clinic</h5>
                     <p class="pe-lg-4">
-                        Northern Ireland's leading specialists in diagnosing and treating
-                        hair and scalp conditions for men, and women.
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men, and women.
                     </p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -563,8 +482,7 @@
                     <p>Subscribe for the latest news and offers.</p>
                     <form>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your email address"
-                                aria-label="Your email address" />
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
                             <button class="btn btn-primary" type="button">Sign Up</button>
                         </div>
                     </form>
@@ -575,10 +493,11 @@
             <small>&copy; 2024 Tess Hair & Scalp Clinic. All Rights Reserved.</small>
         </div>
     </footer>
-
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-</body>
 
+
+</body>
 </html>

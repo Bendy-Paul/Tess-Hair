@@ -288,24 +288,25 @@
 
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./">Home</a>
+                        <a class="nav-link" aria-current="page" href="./">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./about">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Solutions
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="solutions-1.html">Clinical Treatments</a></li>
-                            <li><a class="dropdown-item" href="#">Hair Replacement</a></li>
-                            <li><a class="dropdown-item" href="#">Home Care Products</a></li>
-                            <li><a class="dropdown-item" href="#">Wigs & Hairpieces</a></li>
+                            <li><a class="dropdown-item" href="./solutions-1">Clinical Treatments</a></li>
+                            <li><a class="dropdown-item" href="./hair-replacement">Hair Replacement</a></li>
+                            <li><a class="dropdown-item" href="./home-care-products">Home Care Products</a></li>
+                            <li><a class="dropdown-item" href="./wigs-hairpieces">Wigs & Hairpieces</a></li>
+                            <li><a class="dropdown-item" href="./prp-hairloss">PRP Hairloss</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contact-us.html">Contact</a>
+                        <a class="nav-link" href="./contact-us">Contact</a>
                     </li>
                 </ul>
                 <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
@@ -322,7 +323,7 @@
     </header>
     
     <!-- 2. Intro Section -->
-    <section class="intro-section py-5">
+    <section class="fade-in-section intro-section py-5">
         <div class="container py-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
@@ -338,7 +339,7 @@
     </section>
 
     <!-- 3. Treatments We Offer Section -->
-    <section class="treatments-section py-5">
+    <section class="fade-in-section treatments-section py-5">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Treatments We Offer</h2>
@@ -371,7 +372,7 @@
     </section>
 
     <!-- 4. FAQ Section -->
-    <section class="faq-section py-5">
+    <section class="fade-in-section faq-section py-5">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Frequently Asked Questions</h2>
@@ -423,11 +424,11 @@
     </section>
 
     <!-- 5. CTA Section -->
-    <section class="cta-section text-center py-5">
+    <section class="fade-in-section cta-section text-center py-5">
         <div class="container">
             <h2 class="fw-bold">Discover the Right Treatment for You</h2>
             <p class="lead my-3 col-lg-8 mx-auto">Our experts are ready to provide a confidential, in-depth consultation to assess your needs and recommend the most effective clinical treatment plan.</p>
-            <a href="#" class="btn btn-light btn-lg mt-3">Schedule Your Consultation</a>
+            <a href="./book-now" class="btn btn-light btn-lg mt-3">Schedule Your Consultation</a>
         </div>
     </section>
 
@@ -450,7 +451,7 @@
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="text-uppercase">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="./about">About Us</a></li>
                         <li class="mb-2"><a href="#">Our Solutions</a></li>
                         <li class="mb-2"><a href="#">Client Reviews</a></li>
                         <li class="mb-2"><a href="#">Shop Products</a></li>
@@ -496,6 +497,8 @@
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
 
 </body>
 </html>

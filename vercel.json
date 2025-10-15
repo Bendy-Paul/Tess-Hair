@@ -7,6 +7,10 @@
     { "source": "/contact", "destination": "/contact-us.html" },
     { "source": "/shop", "destination": "/shop.html" },
     { "source": "/clinical-treatments", "destination": "/clinical-treatments.html" },
-    { "source": "/solutions-1", "destination": "/solutions-1.html" }
+    { "source": "/solutions-1", "destination": "/solutions-1.html" },
+    { "source": "/hair-replacement", "destination": "/hair-replacement.html" },
+    { "source": "/home-care-products", "destination": "/home-care-products.html" },
+    { "source": "/wigs-hairpieces", "destination": "/wigs-hairpieces.html" },
+    { "source": "/prp-hairloss", "destination": "/prp-hairloss.html" }
   ]
 }
