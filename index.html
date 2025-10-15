@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,21 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- jQuery (required by Owl Carousel) -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery (required by Owl Carousel) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl Carousel CSS & JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
     <style>
         /* Fade-in Animation */
@@ -39,44 +41,56 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: #333;
-            background-color: #fdfaf3; /* Creamy beige background */
+            background-color: #fdfaf3;
+            /* Creamy beige background */
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-weight: 700;
         }
 
         /* Header */
         .navbar {
             background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+
         .navbar-brand {
             font-weight: 700;
             color: #333 !important;
         }
+
         .navbar .nav-link {
             color: #333 !important;
             font-weight: 600;
             transition: color 0.3s ease;
         }
-        .navbar .nav-link:hover, .navbar .nav-link.active {
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
             color: #c5a47e !important;
         }
+
         .navbar .btn-primary {
-             background-color: #2b2b2b;
-             border-color: #2b2b2b;
-             font-weight: 600;
+            background-color: #2b2b2b;
+            border-color: #2b2b2b;
+            font-weight: 600;
         }
+
         .navbar .btn-primary:hover {
             background-color: #444;
             border-color: #444;
         }
-        
+
         /* Smooth Dropdown Transition for Desktop */
         .dropdown-menu {
             border: none;
-            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
             border-radius: 0.5rem;
             margin-top: 0.5rem;
         }
@@ -90,21 +104,27 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-
         /* 1. Hero Section */
         .hero-section {
             position: relative;
-            height: 80vh; /* Adjusted height for navbar */
-            background: url('./assets/img/hero/hero-1.avif') no-repeat center center/cover;
+            height: 80vh;
+            /* Adjusted height for navbar */
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                /* Optional overlay */
+                url('./assets/video/Short_Movement_Video_Generation.gif') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            /* Ensure text is visible */
         }
 
         .hero-section::after {
@@ -114,7 +134,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Dark overlay */
             z-index: 1;
         }
 
@@ -137,6 +158,7 @@
         .who-we-help-section {
             background-color: #fdfaf3;
         }
+
         .who-we-help-section img {
             width: 150px;
             height: 150px;
@@ -148,22 +170,25 @@
         .testimonials-section {
             background-color: #fdfaf3;
         }
-        
+
         /* Masonry Layout for Testimonials */
         .masonry-grid {
             column-gap: 1.5rem;
             column-count: 1;
         }
+
         @media (min-width: 768px) {
             .masonry-grid {
                 column-count: 2;
             }
         }
+
         @media (min-width: 992px) {
             .masonry-grid {
                 column-count: 3;
             }
         }
+
         .masonry-item {
             break-inside: avoid;
             margin-bottom: 1.5rem;
@@ -171,19 +196,21 @@
 
         .review-card {
             border: 1px solid #eee;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             border-radius: 10px;
             width: 100%;
             background-color: #fff;
             display: flex;
             flex-direction: column;
         }
-         .review-card .card-body {
+
+        .review-card .card-body {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
+
         .review-card .google-icon {
             font-size: 1.5rem;
             color: #DB4437;
@@ -191,6 +218,7 @@
             top: 15px;
             right: 20px;
         }
+
         .review-card .avatar {
             width: 40px;
             height: 40px;
@@ -202,20 +230,24 @@
             font-size: 1.2rem;
             background-color: #6c757d;
         }
-         .review-card .avatar img {
+
+        .review-card .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
         }
+
         .reviewer span {
             font-weight: 600;
         }
 
         /* 5. Video Section */
         .video-section {
-            background-color: #fceef2; /* Light pink background */
+            background-color: #fceef2;
+            /* Light pink background */
         }
+
         .video-player {
             width: 100%;
             max-width: 800px;
@@ -224,6 +256,7 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
         .video-section .btn-dark {
             background-color: #333;
             border-color: #333;
@@ -236,32 +269,39 @@
         .solutions-section {
             background-color: #fdfaf3;
         }
+
         .solution-item {
             position: relative;
             cursor: pointer;
             overflow: hidden;
             border-radius: 5px;
         }
+
         /* Make solution images the same height without stretching: keep aspect ratio and crop as needed */
         .solution-item {
             /* establish a uniform visual height for the image area */
             height: 220px;
         }
+
         .solution-item img {
             transition: transform 0.3s ease;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Crop to fill while preserving aspect ratio */
+            object-fit: cover;
+            /* Crop to fill while preserving aspect ratio */
             display: block;
         }
+
         @media (max-width: 575.98px) {
             .solution-item {
                 height: 160px;
             }
         }
+
         .solution-item:hover img {
             transform: scale(1.05);
         }
+
         .solution-overlay {
             position: absolute;
             bottom: 0;
@@ -272,6 +312,7 @@
             padding: 20px;
             text-align: center;
         }
+
         .solution-overlay h3 {
             margin: 0;
             font-size: 1.2rem;
@@ -282,15 +323,18 @@
         .as-seen-in-section {
             background-color: #fff;
         }
+
         .as-seen-in-section img {
             filter: grayscale(100%);
             opacity: 0.7;
             transition: all 0.3s ease;
         }
+
         .as-seen-in-section img:hover {
             filter: grayscale(0%);
             opacity: 1;
         }
+
         /* Owl carousel adjustments */
         .as-seen-carousel .item {
             display: flex;
@@ -298,6 +342,7 @@
             justify-content: center;
             padding: 10px 5px;
         }
+
         .as-seen-carousel .item img {
             max-height: 70px;
             width: auto;
@@ -309,6 +354,7 @@
         .articles-section {
             background-color: #fdfaf3;
         }
+
         .articles-section .card {
             background-color: transparent;
         }
@@ -318,22 +364,27 @@
             background-color: #2b2b2b;
             color: #f8f9fa;
         }
+
         .footer h5 {
             color: #fff;
             margin-bottom: 1.5rem;
         }
+
         .footer a {
             color: #adb5bd;
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         .footer a:hover {
             color: #fff;
         }
+
         .footer .social-icons a {
             font-size: 1.5rem;
             margin-right: 1rem;
         }
+
         .footer .footer-bottom {
             border-top: 1px solid #444;
         }
@@ -346,9 +397,10 @@
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                background-color: #fdfaf3; /* Match body background */
+                background-color: #fdfaf3;
+                /* Match body background */
                 z-index: 1050;
-                
+
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -367,7 +419,8 @@
 
             /* Override Bootstrap's default hiding to allow for transition */
             .navbar .navbar-collapse.collapse:not(.show) {
-                display: flex; /* Keep as flex to allow transition */
+                display: flex;
+                /* Keep as flex to allow transition */
             }
 
             .navbar-collapse .navbar-nav {
@@ -380,14 +433,16 @@
             }
 
             .navbar-collapse .nav-link {
-                font-size: 1.75rem; /* Larger font for modal view */
+                font-size: 1.75rem;
+                /* Larger font for modal view */
             }
-             .navbar-collapse .dropdown-menu {
+
+            .navbar-collapse .dropdown-menu {
                 text-align: center;
                 border: none;
                 background-color: transparent;
                 box-shadow: none;
-                
+
                 /* Accordion Styles */
                 display: block;
                 width: 100%;
@@ -398,22 +453,24 @@
                 overflow: hidden;
                 transition: max-height 0.35s ease-in-out;
             }
+
             .navbar-collapse .dropdown-item {
                 font-size: 1.25rem;
                 color: #555;
                 padding: 0.5rem 1rem;
             }
-            
+
             .navbar-collapse .dropdown-menu.show {
                 transform: none;
-                max-height: 250px; /* Adjust to fit all items */
+                max-height: 250px;
+                /* Adjust to fit all items */
                 margin-top: 0.5rem;
             }
 
             /* Style the Book Now button for modal view */
             .navbar-collapse .btn-primary {
-               padding: 0.75rem 2rem;
-               font-size: 1.25rem;
+                padding: 0.75rem 2rem;
+                font-size: 1.25rem;
             }
 
             /* Style and position the close button */
@@ -427,36 +484,99 @@
         }
 
 
-.btn-glass {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
 
-.btn-glass:hover {
-    background: rgba(255, 255, 255, 0.3);
-    color: white;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+                /* The Blob Image Shapes */
+        .blob-image-1 {
+            /* top-left | top-right | bottom-right | bottom-left */
+            /* This complex syntax creates elliptical corners for an organic shape */
+            border-radius: 60% 40% 30% 70% / 60% 60% 40% 40%;
+            object-fit: cover;
+            height: 500px;
+            width: 100%;
+        }
+
+        .blob-image-2 {
+            border-radius: 70% 30% 70% 30% / 40% 60% 40% 60%;
+            object-fit: cover;
+            height: 500px;
+            width: 100%;
+        }
+
+        /* Logo Section Styling */
+        .logo-section .logo-img {
+            height: 25px; /* Adjust size as needed */
+            margin: 15px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .logo-section .logo-img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Fade-in Animation (for JS) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .content-section {
+                padding: 4rem 1rem;
+                text-align: center;
+            }
+            .text-content {
+                margin: 0 auto; /* Center text block on smaller screens */
+            }
+            .blob-image-1, .blob-image-2 {
+                height: auto; /* Allow height to adjust on smaller screens */
+                max-width: 80%;
+                margin: 2rem auto 0;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid" style="height: 100px;">
+                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid"
+                    style="height: 100px;">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Close button for mobile fullscreen menu -->
-                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"></button>
+                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Close"></button>
 
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -466,7 +586,8 @@
                         <a class="nav-link" href="./about">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Solutions
                         </a>
                         <ul class="dropdown-menu">
@@ -481,7 +602,8 @@
                         <a class="nav-link" href="./contact-us">Contact</a>
                     </li>
                 </ul>
-                <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
+                <a href="./book-now"
+                    class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
             </div>
         </div>
     </nav>
@@ -496,7 +618,8 @@
                 <a href="./book-now" class="text-white text-decoration-none mx-3">BOOK A CONSULTATION</a>
                 <a href="./contact-us" class="text-white text-decoration-none mx-3">CONTACT US</a>
                 <br><br><br>
-                <a href="./about" class="btn btn-glass rounded-pill px-4 py-2 mt-4">LEARN MORE <i class="fa fa-arrow-right"></i></a>
+                <a href="./about" class="btn btn-glass rounded-pill px-4 py-2 mt-4">LEARN MORE <i
+                        class="fa fa-arrow-right"></i></a>
             </div>
         </div>
     </header>
@@ -525,17 +648,62 @@
     <section class="who-we-help-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold">Who can we help?</h2>
-            <p class="lead mb-5">We are specialist Trichologists who diagnose and treat hair and scalp conditions for men, and women.</p>
+            <p class="lead mb-5">We are specialist Trichologists who diagnose and treat hair and scalp conditions for
+                men, and women.</p>
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <img src="./assets/img/help/men.jpg" class="img-fluid rounded-circle mb-3" alt="Men">
                     <h4 class="fw-bold"><i class="fas fa-mars me-2"></i>MEN</h4>
-                    <p>We provide a variety of solutions for hair loss in men, including hair replacement systems and clinical treatments.</p>
+                    <p>We provide a variety of solutions for hair loss in men, including hair replacement systems and
+                        clinical treatments.</p>
                 </div>
                 <div class="col-md-6 mb-4">
                     <img src="./assets/img/help/women.jpg" class="img-fluid rounded-circle mb-3" alt="Women">
                     <h4 class="fw-bold"><i class="fas fa-venus me-2"></i>WOMEN</h4>
-                    <p>Our award-winning services cater to women experiencing hair loss, offering compassionate care and effective solutions.</p>
+                    <p>Our award-winning services cater to women experiencing hair loss, offering compassionate care and
+                        effective solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: About Our Hair Clinic -->
+    <section class="content-section fade-in-section">
+        <div class="container">
+            <h2 class="fw-bold text-center">About Our Hair Clinic</h2>
+            <p class="lead mb-5 text-center">Discover expert hair loss solutions from Northern Ireland's most trusted trichologists</p>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="text-content mx-auto mx-lg-0">
+                        <p class="text-muted small">About Tess Hair & Scalp Clinic</p>
+                        <h1 class="display-4">Northern Ireland's Leading Hair Loss Specialists</h1>
+                        <p class="lead">With over 20 years of experience, our expert trichologists provide personalized solutions for all types of hair and scalp conditions. We understand the emotional impact of hair loss and are committed to helping you regain your confidence with proven, effective treatments.</p>
+                        <a href="./about" class="btn btn-dark btn-custom">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./assets/img/about-us/about-1.jpg" alt="Hair consultation with client" class="img-fluid blob-image-1" onerror="this.onerror=null;this.src='https://placehold.co/600x500/f8f7f5/333?text=Hair+Consultation';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<br><br><br>
+
+    <!-- Section 2: Our Expertise -->
+    <section class="content-section fade-in-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="text-content mx-auto mx-lg-0">
+                        <p class="text-muted small">Our Expertise</p>
+                        <h1 class="display-4">Advanced Hair Loss Solutions for Everyone</h1>
+                        <p class="lead">From clinical treatments and hair replacement systems to custom wigs and PRP therapy, we offer comprehensive solutions for all hair loss concerns. Our state-of-the-art clinic combines medical expertise with compassionate care to deliver outstanding results.</p>
+                        <a href="./solutions-1" class="btn btn-dark btn-custom">View Solutions &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img src="./assets/img/about-us/about-2.jpg" alt="Modern hair treatment room" class="img-fluid blob-image-2" onerror="this.onerror=null;this.src='https://placehold.co/600x500/f8f7f5/333?text=Treatment+Room';">
                 </div>
             </div>
         </div>
@@ -545,21 +713,26 @@
     <section class="testimonials-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 id="reviews-title" class="fw-bold">What our clients say</h2>
-            <p id="reviews-subtitle" class="lead mb-5">Read some of the lovely reviews our amazing clients have left for us and the new lease of life it comes with it.</p>
-            
+            <p id="reviews-subtitle" class="lead mb-5">Read some of the lovely reviews our amazing clients have left for
+                us and the new lease of life it comes with it.</p>
+
             <div id="reviews-container" class="masonry-grid">
                 <!-- Reviews will be dynamically inserted here -->
             </div>
         </div>
     </section>
-    
+
     <!-- 5. Video Section -->
     <section class="video-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold">Our Trichologist tells her story</h2>
-            <p class="lead mb-4">"Just like you, I have also suffered with my hair and I know exactly how you feel..."</p>
+            <p class="lead mb-4">"Just like you, I have also suffered with my hair and I know exactly how you feel..."
+            </p>
             <div class="video-player bg-dark text-white d-flex align-items-center justify-content-center mb-4">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="border-radius: 10px;"></iframe>
             </div>
             <a href="#" class="btn btn-dark btn-lg">LEARN MORE</a>
         </div>
@@ -568,28 +741,35 @@
     <!-- 6. Solutions Section -->
     <section class="solutions-section text-center py-5 fade-in-section">
         <div class="container">
-             <h2 class="fw-bold">Our Solutions</h2>
-             <p class="lead mb-5">We have a solution for you, no matter what your concern is.</p>
-             <div class="row g-4">
-                 <div class="col-md-6 col-lg-4">
-                     <div class="solution-item">
-                         <img src="./assets/img/what we do/hair-treatment.avif" class="img-fluid" alt="Clinical Treatments">
-                         <div class="solution-overlay"><h3>Hair & Scalp Treatment</h3></div>
-                     </div>
-                 </div>
-                 <div class="col-md-6 col-lg-4">
-                     <div class="solution-item">
-                         <img src="./assets/img/what we do/wig.avif" class="img-fluid" alt="Bespoke Wig Services">
-                         <div class="solution-overlay"><h3>Bespoke Wig Services</h3></div>
-                     </div>
-                 </div>
-                 <div class="col-md-6 col-lg-4">
-                     <div class="solution-item">
-                         <img src="./assets/img/what we do/restoratiom.avif" class="img-fluid" alt="Hair Restoration">
-                         <div class="solution-overlay"><h3>Hair Restoration</h3></div>
-                     </div>
-                 </div>
-             </div>
+            <h2 class="fw-bold">Our Solutions</h2>
+            <p class="lead mb-5">We have a solution for you, no matter what your concern is.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="solution-item">
+                        <img src="./assets/img/what we do/hair-treatment.avif" class="img-fluid"
+                            alt="Clinical Treatments">
+                        <div class="solution-overlay">
+                            <h3>Hair & Scalp Treatment</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="solution-item">
+                        <img src="./assets/img/what we do/wig.avif" class="img-fluid" alt="Bespoke Wig Services">
+                        <div class="solution-overlay">
+                            <h3>Bespoke Wig Services</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="solution-item">
+                        <img src="./assets/img/what we do/restoratiom.avif" class="img-fluid" alt="Hair Restoration">
+                        <div class="solution-overlay">
+                            <h3>Hair Restoration</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -597,17 +777,23 @@
     <section class="as-seen-in-section text-center py-5 fade-in-section">
         <div class="container">
             <h2 class="fw-bold mb-4">As Seen In</h2>
-                <div class="owl-carousel as-seen-carousel align-items-center">
-                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+1" class="img-fluid" alt="Logo 1"></div>
-                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+2" class="img-fluid" alt="Logo 2"></div>
-                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+3" class="img-fluid" alt="Logo 3"></div>
-                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+4" class="img-fluid" alt="Logo 4"></div>
-                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+5" class="img-fluid" alt="Logo 5"></div>
-                    <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+6" class="img-fluid" alt="Logo 6"></div>
-                </div>
+            <div class="owl-carousel as-seen-carousel align-items-center">
+                <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+1" class="img-fluid"
+                        alt="Logo 1"></div>
+                <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+2" class="img-fluid"
+                        alt="Logo 2"></div>
+                <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+3" class="img-fluid"
+                        alt="Logo 3"></div>
+                <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+4" class="img-fluid"
+                        alt="Logo 4"></div>
+                <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+5" class="img-fluid"
+                        alt="Logo 5"></div>
+                <div class="item"><img src="https://placehold.co/200x80/EFEFEF/333?text=Logo+6" class="img-fluid"
+                        alt="Logo 6"></div>
+            </div>
         </div>
     </section>
-    
+
     <!-- 8. Articles Section -->
     <section class="articles-section text-center py-5 fade-in-section">
         <div class="container">
@@ -615,28 +801,34 @@
             <div class="row mt-4">
                 <div class="col-md-4 mb-4">
                     <div class="card border-0">
-                        <img src="https://images.unsplash.com/photo-1621253247548-528254191399?q=80&w=1887&auto=format&fit=crop" class="card-img-top rounded" alt="Article 1">
+                        <img src="https://images.unsplash.com/photo-1621253247548-528254191399?q=80&w=1887&auto=format&fit=crop"
+                            class="card-img-top rounded" alt="Article 1">
                         <div class="card-body text-start px-0">
                             <h5 class="card-title fw-bold">Understanding Androgenetic Alopecia</h5>
-                            <p class="card-text">A deep dive into the most common form of hair loss and the latest treatment options available.</p>
+                            <p class="card-text">A deep dive into the most common form of hair loss and the latest
+                                treatment options available.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card border-0">
-                        <img src="https://images.unsplash.com/photo-1540420773420-2850a80b0e56?q=80&w=1887&auto=format&fit=crop" class="card-img-top rounded" alt="Article 2">
+                        <img src="https://images.unsplash.com/photo-1540420773420-2850a80b0e56?q=80&w=1887&auto=format&fit=crop"
+                            class="card-img-top rounded" alt="Article 2">
                         <div class="card-body text-start px-0">
                             <h5 class="card-title fw-bold">The Role of Diet in Hair Health</h5>
-                            <p class="card-text">Discover which vitamins and minerals are crucial for maintaining strong, healthy hair.</p>
+                            <p class="card-text">Discover which vitamins and minerals are crucial for maintaining
+                                strong, healthy hair.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card border-0">
-                        <img src="https://images.unsplash.com/photo-1605980614838-6e54f762f22e?q=80&w=1887&auto=format&fit=crop" class="card-img-top rounded" alt="Article 3">
+                        <img src="https://images.unsplash.com/photo-1605980614838-6e54f762f22e?q=80&w=1887&auto=format&fit=crop"
+                            class="card-img-top rounded" alt="Article 3">
                         <div class="card-body text-start px-0">
                             <h5 class="card-title fw-bold">Top 5 Scalp Care Tips from a Trichologist</h5>
-                            <p class="card-text">Learn how to properly care for your scalp to promote optimal hair growth and prevent issues.</p>
+                            <p class="card-text">Learn how to properly care for your scalp to promote optimal hair
+                                growth and prevent issues.</p>
                         </div>
                     </div>
                 </div>
@@ -651,7 +843,8 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>Tess Hair & Scalp Clinic</h5>
                     <p class="pe-lg-4">
-                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men and women.
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for
+                        men and women.
                     </p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -695,7 +888,8 @@
                     <p>Subscribe for the latest news and offers.</p>
                     <form>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                            <input type="email" class="form-control" placeholder="Your email address"
+                                aria-label="Your email address">
                             <button class="btn btn-primary" type="button">Sign Up</button>
                         </div>
                     </form>
@@ -706,11 +900,11 @@
             <small>&copy; 2024 Tess Hair & Scalp Clinic. All Rights Reserved.</small>
         </div>
     </footer>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const reviewsData = {
@@ -743,7 +937,7 @@
                     "reviewText": "If you have any form of hair loss please contact this salon. I've had hair loss for over 20 years and have had to use a hair topper, but I found going through the menopause my hair got worse leaving me with bald spots and very thin on top. Meeting Sarah and her team was an absolute delight, not only have they transformed my hair, they have given me back my confidence with this new CNC Hair System. So ladies please don't suffer in silence it only takes a call to change your well being and your HAIR.",
                     "author": {
                         "name": "C Mcgarry",
-                         "avatarInitial": "C"
+                        "avatarInitial": "C"
                     },
                     "date": "September 29, 2023"
                 }, {
@@ -780,7 +974,7 @@
             };
 
             const reviewsContainer = document.getElementById('reviews-container');
-            
+
             // Function to render reviews
             function renderReviews() {
                 // Update titles
@@ -789,7 +983,7 @@
 
                 if (!reviewsContainer) return;
                 reviewsContainer.innerHTML = ''; // Clear existing reviews
-                
+
                 const backgroundColors = ['#28a745', '#17a2b8', '#dc3545', '#ffc107', '#007bff', '#6610f2'];
 
                 reviewsData.reviews.forEach((review, index) => {
@@ -802,7 +996,7 @@
                     const avatar = review.author.avatarUrl ?
                         `<img src="${review.author.avatarUrl}" alt="${review.author.name}">` :
                         `<div class="avatar text-white" style="background-color: ${avatarColor};">${review.author.avatarInitial || review.author.name.charAt(0)}</div>`;
-                    
+
                     item.innerHTML = `
                         <div class="card review-card">
                             <div class="card-body">
@@ -830,27 +1024,27 @@
         });
     </script>
 
-        <script>
-            // Initialize Owl Carousel after DOM ready
-            $(document).ready(function(){
-                if ($('.as-seen-carousel').length) {
-                    $('.as-seen-carousel').owlCarousel({
-                        loop: true,
-                        margin: 20,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        autoplayHoverPause: true,
-                        responsive: {
-                            0: { items: 2 },
-                            576: { items: 3 },
-                            768: { items: 4 },
-                            992: { items: 5 },
-                            1200: { items: 6 }
-                        }
-                    });
-                }
-            });
-        </script>
+    <script>
+        // Initialize Owl Carousel after DOM ready
+        $(document).ready(function () {
+            if ($('.as-seen-carousel').length) {
+                $('.as-seen-carousel').owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: { items: 2 },
+                        576: { items: 3 },
+                        768: { items: 4 },
+                        992: { items: 5 },
+                        1200: { items: 6 }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
-</html>
 
+</html>
