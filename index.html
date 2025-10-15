@@ -413,6 +413,23 @@
                 z-index: 1051;
             }
         }
+
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
     </style>
 </head>
 <body>
@@ -463,8 +480,9 @@
             <h1 class="display-4 fw-bold">Transform Your Look: Luxurious Hair Extensions for Effortless Glamour</h1>
             <div class="hero-links my-4">
                 <a href="#" class="text-white text-decoration-none mx-3">BOOK A CONSULTATION</a>
-                <!-- <a href="#" class="text-white text-decoration-none mx-3">VIEW OUR SHOP</a> -->
                 <a href="#" class="text-white text-decoration-none mx-3">CONTACT US</a>
+                <br><br>
+                <a href="#" class="btn btn-glass rounded-pill px-4 py-2 mt-4">LEARN MORE <i class="fa fa-arrow-right"></i></a>
             </div>
         </div>
     </header>
@@ -495,17 +513,21 @@
             <h2 class="fw-bold">Who can we help?</h2>
             <p class="lead mb-5">We are specialist Trichologists who diagnose and treat hair and scalp conditions for men, and women.</p>
             <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
                     <img src="./assets/img/help/men.jpg" class="img-fluid rounded-circle mb-3" alt="Men">
                     <h4 class="fw-bold"><i class="fas fa-mars me-2"></i>MEN</h4>
                     <p>We provide a variety of solutions for hair loss in men, including hair replacement systems and clinical treatments.</p>
                 </div>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
                     <img src="./assets/img/help/women.jpg" class="img-fluid rounded-circle mb-3" alt="Women">
                     <h4 class="fw-bold"><i class="fas fa-venus me-2"></i>WOMEN</h4>
                     <p>Our award-winning services cater to women experiencing hair loss, offering compassionate care and effective solutions.</p>
                 </div>
-                
+                <div class="col-md-4 mb-4">
+                    <img src="./assets/img/help/child.jpg" class="img-fluid rounded-circle mb-3" alt="Children">
+                    <h4 class="fw-bold"><i class="fas fa-child me-2"></i>CHILDREN</h4>
+                    <p>We offer specialised, gentle treatments for children with hair and scalp conditions in a supportive environment.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -620,7 +642,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>Tess Hair & Scalp Clinic</h5>
                     <p class="pe-lg-4">
-                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men, and women.
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for men, women, and children.
                     </p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
