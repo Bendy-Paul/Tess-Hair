@@ -16,6 +16,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <!-- Custom CSS -->
     <style>
         /* General Body & Font Styles */
@@ -315,7 +320,7 @@
     </nav>
 
     <!-- 1. Page Header -->
-    <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1973&auto=format&fit=crop');">
+    <header class="page-header" style="background-image: url('./assets/img/solutions/hair-products.jpg');">
         <div class="container">
             <h1 class="display-4 fw-bold">Professional Home Care Products</h1>
             <p class="lead col-lg-8 mx-auto">Extend the benefits of your in-clinic treatments with our curated selection of trichologist-approved hair and scalp care products.</p>
@@ -323,18 +328,30 @@
     </header>
     
     <!-- 2. Intro Section -->
+
     <section class="fade-in-section intro-section py-5">
         <div class="container py-4">
-            <div class="row align-items-center g-5">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6">
+                            <h2 class="fw-bold mb-3">Maintain and Enhance Your Results at Home</h2>
+                            <p class="text-muted">Achieving and maintaining optimal hair and scalp health requires a consistent regimen. That's why we offer a premium range of home care products, carefully selected by our certified trichologists to complement our clinical treatments and support your hair goals between visits.</p>
+                            <p class="text-muted">Our collection includes everything from targeted shampoos and conditioners to potent serums and nutritional supplements. Each product is formulated with high-quality, effective ingredients to nourish the scalp, strengthen hair follicles, and promote healthy growth.</p>
+                        </div>
                 <div class="col-lg-6">
-                    <h2 class="fw-bold mb-3">Maintain and Enhance Your Results at Home</h2>
-                    <p class="text-muted">Achieving and maintaining optimal hair and scalp health requires a consistent regimen. That's why we offer a premium range of home care products, carefully selected by our certified trichologists to complement our clinical treatments and support your hair goals between visits.</p>
-                    <p class="text-muted">Our collection includes everything from targeted shampoos and conditioners to potent serums and nutritional supplements. Each product is formulated with high-quality, effective ingredients to nourish the scalp, strengthen hair follicles, and promote healthy growth.</p>
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img src="./assets/img/solutions/hair-products.jpg" class="img-fluid shadow-lg"
+                                alt="Trichologist analyzing scalp with a microcamera" />
+                        </div>
+
+                        <div class="item">
+                            <img src="./assets/img/solutions/hair-product-2.jpg" class="img-fluid shadow-lg"
+                                alt="Trichologist analyzing scalp with a microcamera" />
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1887&auto=format&fit=crop" class="img-fluid shadow-lg" alt="Home Care Products">
-                </div>
-            </div>
+                    </div>
+
         </div>
     </section>
 
@@ -496,7 +513,27 @@
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuery and Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn'
+            });
+        });
+    </script>
 
 </body>
 </html>
