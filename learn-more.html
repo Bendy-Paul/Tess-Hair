@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More About Our Services | HairLoss Rehab</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* General Body & Font Styles */
+        :root {
+            --primary-color: #2b2b2b;
+            --secondary-color: #c5a47e;
+            --accent-color: #fdfaf3;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--accent-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+
+        /* General Body & Font Styles */
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: #333;
+            background-color: #fdfaf3;
+            /* Creamy beige background */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #333 !important;
+        }
+
+        .navbar .nav-link {
+            color: #333 !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: #c5a47e !important;
+        }
+
+        .navbar .btn-primary {
+            background-color: #2b2b2b;
+            border-color: #2b2b2b;
+            font-weight: 600;
+        }
+
+        .navbar .btn-primary:hover {
+            background-color: #444;
+            border-color: #444;
+        }
+
+        /* Smooth Dropdown Transition for Desktop */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu.show {
+            animation: fadeInDown 0.3s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* 1. Page Header */
+        .page-header {
+            position: relative;
+            padding: 10rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1512290923902-8a9f31c83659?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header .lead {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Service Detail Card Styling */
+        .service-card {
+            background-color: #fff;
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 4rem;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--secondary-color);
+            z-index: 1;
+        }
+
+        .service-card img {
+            object-fit: cover;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card .card-body {
+            padding: 3rem;
+        }
+
+        .service-card .icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(197, 164, 126, 0.1);
+        }
+
+        .service-card h2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .service-card ul,
+        .service-card ol {
+            padding-left: 0;
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card ul li,
+        .service-card ol li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-card ul li::before,
+        .service-card ol li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 0.75rem;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .service-card ul li::before {
+            content: "\f00c";
+        }
+
+        .service-card ol li::before {
+            counter-increment: list-item-counter;
+            content: counter(list-item-counter);
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .service-card ol {
+            counter-reset: list-item-counter;
+        }
+
+        .service-card h4 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-card h4::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+        }
+
+        /* Service Badge */
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Service Stats */
+        .service-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background-color: rgba(197, 164, 126, 0.05);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-name {
+            font-weight: 600;
+        }
+
+        .pricing-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background-color: rgba(43, 43, 43, 0.03);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .testimonial-section::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 4rem;
+            color: rgba(197, 164, 126, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #444 100%);
+            color: var(--light-text);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.2) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.1) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section .btn-light,
+        .cta-section .btn-outline-light {
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section .btn-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section .btn-outline-light:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Floating Action Button */
+        .floating-action-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-action-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.1) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer .social-icons a {
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1.5rem;
+        }
+
+        /* Fullscreen Modal Navigation for Medium and Small Screens */
+        @media (max-width: 991.98px) {
+            .navbar .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: var(--accent-color);
+                z-index: 1050;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .navbar .navbar-collapse.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navbar .navbar-collapse.collapse:not(.show) {
+                display: flex;
+            }
+
+            .navbar-collapse .navbar-nav {
+                margin-left: 0 !important;
+            }
+
+            .navbar-collapse .nav-item {
+                margin: 0.75rem 0;
+            }
+
+            .navbar-collapse .nav-link {
+                font-size: 1.75rem;
+            }
+
+            .navbar-collapse .dropdown-menu {
+                text-align: center;
+                border: none;
+                background-color: transparent;
+                box-shadow: none;
+                display: block;
+                width: 100%;
+                animation: none;
+                max-height: 0;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease-in-out;
+            }
+
+            .navbar-collapse .dropdown-item {
+                font-size: 1.25rem;
+                color: #555;
+                padding: 0.5rem 1rem;
+            }
+
+            .navbar-collapse .dropdown-menu.show {
+                transform: none;
+                max-height: 250px;
+                margin-top: 0.5rem;
+            }
+
+            .navbar-collapse .btn-primary {
+                padding: 0.75rem 2rem;
+                font-size: 1.25rem;
+            }
+
+            .navbar-collapse .btn-close {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                font-size: 1.2rem;
+                z-index: 1051;
+            }
+
+            .service-card img {
+                max-height: 300px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 7rem 0;
+            }
+
+            .service-card .card-body {
+                padding: 2rem;
+            }
+
+            .cta-section {
+                padding: 4rem 0;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid"
+                    style="height: 100px" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Close button for mobile fullscreen menu -->
+                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Close"></button>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./learn-more">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Solutions
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./solutions-1">Clinical Treatments</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./hair-replacement">Hair Replacement</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./home-care-products">Home Care Products</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./wigs-hairpieces">Wigs & Hairpieces</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./prp-hairloss">PRP Hairloss</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact-us">Contact</a>
+                    </li>
+                </ul>
+                <a href="./book-now"
+                    class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fw-bold" data-aos="fade-up">Learn More About Our Services</h1>
+            <p class="lead col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">Detailed information on our specialized treatments designed to meet your
+                unique hair and scalp needs.</p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+
+            <!-- Scalp Treatment Card -->
+            <div class="card service-card" data-aos="fade-right">
+                <div class="service-badge">Most Popular</div>
+                <div class="row g-0">
+                    <div class="col-lg-5">
+                        <img src="./assets/img/solutions/scalp-treatment.jpg"
+                            class="img-fluid w-100 h-100" alt="Scalp Treatment Application">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card-body">
+                            <h2><i class="fas fa-spa icon"></i>Scalp Treatment</h2>
+                            <p class="text-muted">Healthy hair begins at the root. Our comprehensive Scalp Treatment service
+                                detoxifies, nourishes, and revitalizes your scalp to promote optimal hair growth and
+                                comfort using our exclusive blend of natural ingredients and advanced technology.</p>
+
+                            <h4>Treatment Process:</h4>
+                            <ol>
+                                <li>Initial scalp analysis and consultation</li>
+                                <li>Deep cleansing with our signature detox shampoo</li>
+                                <li>Exfoliation to remove dead skin cells and buildup</li>
+                                <li>Application of nutrient-rich serum</li>
+                                <li>Gentle massage to stimulate circulation</li>
+                                <li>Final conditioning and protection</li>
+                            </ol>
+
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Removes buildup and impurities from follicles</li>
+                                <li>Stimulates blood circulation for nutrient delivery</li>
+                                <li>Reduces dandruff, dryness, and flakiness</li>
+                                <li>Supports healthy hair growth from the roots</li>
+                                <li>Balances oil production</li>
+                                <li>Soothes irritation and itchiness</li>
+                            </ul>
+
+                            <div class="pricing-section">
+                                <h4>Treatment Options:</h4>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Single Session</span>
+                                    <span class="pricing-price">£85</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Package of 4 Sessions</span>
+                                    <span class="pricing-price">£300</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Maintenance (Monthly)</span>
+                                    <span class="pricing-price">£65/session</span>
+                                </div>
+                            </div>
+
+                            <h4>Ideal For:</h4>
+                            <p class="text-muted">Dry scalp, oily scalp, thinning hair, dandruff, itchiness, product buildup, or anyone seeking to improve overall scalp health.</p>
+
+                            <div class="service-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">45-60</span>
+                                    <span class="stat-label">Minutes</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">4-6</span>
+                                    <span class="stat-label">Sessions Recommended</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">98%</span>
+                                    <span class="stat-label">Satisfaction Rate</span>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-section">
+                                <p class="testimonial-text">"After just three sessions, my scalp feels completely transformed. The itching is gone and my hair looks healthier than it has in years!"</p>
+                                <p class="testimonial-author">- Sarah M., Belfast</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hair Extensions Card -->
+            <div class="card service-card" data-aos="fade-left">
+                <div class="service-badge">Instant Results</div>
+                <div class="row g-0">
+                    <div class="col-lg-5 order-lg-2">
+                        <img src="./assets/img/solutions/hair-extension.jpg"
+                            class="img-fluid w-100 h-100" alt="Hair Extensions Example">
+                    </div>
+                    <div class="col-lg-7 order-lg-1">
+                        <div class="card-body">
+                            <h2><i class="fas fa-cut icon"></i>Hair Extensions</h2>
+                            <p class="text-muted">Instant glamour, endless possibilities. Our premium Hair Extension services
+                                offer length, volume, and style tailored to your unique look using only the highest quality human hair and application techniques.</p>
+
+                            <h4>Extension Types Available:</h4>
+                            <ul>
+                                <li><strong>Tape-in Extensions</strong> - Quick application, comfortable, reusable</li>
+                                <li><strong>Micro-links</strong> - No heat or glue, minimal damage</li>
+                                <li><strong>Clip-ins</strong> - Temporary, perfect for special occasions</li>
+                                <li><strong>Sew-ins</strong> - Long-lasting, great for thick hair</li>
+                                <li><strong>Nano-tips</strong> - Virtually undetectable, lightweight</li>
+                                <li><strong>Hybrid Methods</strong> - Custom combination for perfect results</li>
+                            </ul>
+
+                            <h4>Why Choose Our Extensions:</h4>
+                            <ul>
+                                <li>Seamless blending with your natural hair</li>
+                                <li>Damage-free application techniques</li>
+                                <li>Premium quality 100% human hair</li>
+                                <li>Customized coloring and styling</li>
+                                <li>Professional maintenance and adjustment services</li>
+                                <li>Comprehensive aftercare guidance</li>
+                            </ul>
+
+                            <div class="pricing-section">
+                                <h4>Starting Prices:</h4>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Consultation & Fitting</span>
+                                    <span class="pricing-price">£50</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Tape-in Full Head</span>
+                                    <span class="pricing-price">From £350</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Micro-link Full Head</span>
+                                    <span class="pricing-price">From £450</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Maintenance (6-8 weeks)</span>
+                                    <span class="pricing-price">From £80</span>
+                                </div>
+                            </div>
+
+                            <div class="service-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">2-4</span>
+                                    <span class="stat-label">Hours Installation</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">6-8</span>
+                                    <span class="stat-label">Weeks Between Maintenance</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">12-18</span>
+                                    <span class="stat-label">Months Lifespan</span>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-section">
+                                <p class="testimonial-text">"I've had extensions from several salons, but none compare to the natural look and comfort of HairLoss Rehab's work. Worth every penny!"</p>
+                                <p class="testimonial-author">- Jessica T., Derry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRP Hair Restoration Card -->
+            <div class="card service-card" data-aos="fade-right">
+                <div class="service-badge">Medical Grade</div>
+                <div class="row g-0">
+                    <div class="col-lg-5">
+                        <img src="./assets/img/solutions/prp-hairloss-3.jpg"
+                            class="img-fluid w-100 h-100" alt="PRP Hair Restoration Procedure Diagram">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card-body">
+                            <h2><i class="fas fa-syringe icon"></i>PRP Hair Restoration</h2>
+                            <p class="text-muted">Harness the power of your own body to restore hair naturally. PRP
+                                (Platelet-Rich Plasma) therapy stimulates dormant follicles and improves scalp health using your body's natural growth factors.</p>
+
+                            <h4>How It Works:</h4>
+                            <ol>
+                                <li>A small amount of your blood is drawn (similar to a routine blood test)</li>
+                                <li>Blood is processed in a centrifuge to separate platelet-rich plasma</li>
+                                <li>Growth factor-rich plasma is carefully extracted</li>
+                                <li>Targeted micro-injections deliver plasma to thinning areas</li>
+                                <li>Growth factors stimulate hair follicles and promote regrowth</li>
+                            </ol>
+
+                            <h4>Treatment Benefits:</h4>
+                            <ul>
+                                <li>Non-surgical and completely safe (uses your own blood)</li>
+                                <li>Minimal downtime - resume normal activities immediately</li>
+                                <li>Effective for both men and women with thinning hair</li>
+                                <li>Stimulates natural hair growth rather than masking the problem</li>
+                                <li>Improves hair thickness, strength, and overall quality</li>
+                                <li>Can be combined with other treatments for enhanced results</li>
+                            </ul>
+
+                            <div class="pricing-section">
+                                <h4>Treatment Packages:</h4>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Initial Consultation</span>
+                                    <span class="pricing-price">£75</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Single PRP Session</span>
+                                    <span class="pricing-price">£400</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Package of 3 Sessions</span>
+                                    <span class="pricing-price">£1,050</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span class="pricing-name">Maintenance (Annual)</span>
+                                    <span class="pricing-price">£350</span>
+                                </div>
+                            </div>
+
+                            <h4>Expected Results:</h4>
+                            <p class="text-muted">Most patients see initial improvements within 2-3 months, with optimal results after 6-12 months. Maintenance treatments are recommended annually to sustain results.</p>
+
+                            <div class="service-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">60-90</span>
+                                    <span class="stat-label">Minutes Per Session</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">3-4</span>
+                                    <span class="stat-label">Sessions Initially</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">85%</span>
+                                    <span class="stat-label">See Visible Improvement</span>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-section">
+                                <p class="testimonial-text">"I was skeptical about PRP, but after my third treatment, I could see new hair growth in areas that were thinning for years. It's been life-changing."</p>
+                                <p class="testimonial-author">- Michael R., Lisburn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section text-center py-5">
+        <div class="container position-relative">
+            <h2 class="fw-bold" data-aos="fade-up">Ready to Learn More or Book?</h2>
+            <p class="lead my-3 col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">Contact us today for a personalized consultation to discuss which
+                service is right for you, or book your appointment online.</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-outline-light btn-lg mt-3 me-2">Contact Us</a>
+                <a href="book-now.html" class="btn btn-light btn-lg mt-3 ms-2">Book Your Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <a href="book-now.html" class="floating-action-btn">
+        <i class="fas fa-calendar-check fa-lg"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase"><i class="fas fa-cut me-2"></i>HairLoss Rehab</h5>
+                    <p class="pe-lg-4">
+                        Northern Ireland's leading specialists in diagnosing and treating hair and scalp conditions for
+                        men, women, and children.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Our Solutions</a></li>
+                        <li class="mb-2"><a href="#">Client Reviews</a></li>
+                        <li class="mb-2"><a href="#">Shop Products</a></li>
+                        <li class="mb-2"><a href="#">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Clinic Street, Belfast, NI</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(028) 1234 5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@hairlossrehab.co.uk</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Newsletter</h5>
+                    <p>Subscribe for the latest news and offers.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address"
+                                aria-label="Your email address">
+                            <button class="btn btn-primary" type="button">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center py-3">
+            <small>&copy; 2024 HairLoss Rehab. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
