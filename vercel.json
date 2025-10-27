@@ -12,6 +12,7 @@
     { "source": "/home-care-products", "destination": "/home-care-products.html" },
     { "source": "/wigs-hairpieces", "destination": "/wigs-hairpieces.html" },
     { "source": "/prp-hairloss", "destination": "/prp-hairloss.html" },
+    { "source": "/hair-extensions", "destination": "/hair-extensions.html" },
     { "source": "/learn-more", "destination": "/learn-more.html" }
   ]
 }

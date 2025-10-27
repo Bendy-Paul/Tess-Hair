@@ -20,6 +20,7 @@ RewriteRule ^shop$ shop.html [L]
 RewriteRule ^clinical-treatments$ clinical-treatments.html [L]
 RewriteRule ^solutions-1$ solutions-1.html [L]
 RewriteRule ^learn-more$ learn-more.html [L]
+RewriteRule ^hair-extensions$ hair-extensions.html [L]
 
 # Fallback: try to serve requested path with .html appended
 RewriteCond %{REQUEST_FILENAME} !-f

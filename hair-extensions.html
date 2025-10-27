@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRP Hairloss | Tess Hair & Scalp Clinic</title>
+    <title>Hair Extensions | Tess Hair & Scalp Clinic</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -120,7 +120,7 @@
             position: relative;
             padding: 10rem 0;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('./assets/img/solutions/prp-hairloss-2.jpg') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             color: #fff;
             display: flex;
             align-items: center;
@@ -227,14 +227,59 @@
             flex-shrink: 0;
         }
 
-        /* Process Section */
-        .process-section {
+        /* Extension Showcase */
+        .extension-showcase {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .extension-showcase::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .extension-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        .extension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .extension-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .extension-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
             background-color: #fff;
             position: relative;
             overflow: hidden;
         }
 
-        .process-section::before {
+        .benefits-section::before {
             content: '';
             position: absolute;
             top: -100px;
@@ -245,6 +290,25 @@
             border-radius: 50%;
         }
 
+        .benefit-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(197, 164, 126, 0.1);
+        }
+
+        /* Process Section */
         .process-step {
             text-align: center;
             padding: 2rem 1rem;
@@ -276,81 +340,6 @@
             margin: 0 auto 1.5rem;
             position: relative;
             z-index: 2;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefits-section::before {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
-            border-radius: 50%;
-        }
-
-        .benefit-item {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
-        .benefit-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: rgba(197, 164, 126, 0.1);
-        }
-
-        /* Results Section */
-        .results-section {
-            background-color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .results-section::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
-            border-radius: 50%;
-        }
-
-        .result-card {
-            background-color: #fff;
-            border-radius: 1rem;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #f0f0f0;
-        }
-
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .result-img {
-            height: 250px;
-            object-fit: cover;
-            width: 100%;
         }
 
         /* FAQ Section */
@@ -686,10 +675,10 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8">
-                    <h1 class="fw-bold" data-aos="fade-up">PRP for Hair Loss</h1>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Harness the power of your body's own healing abilities with Platelet-Rich Plasma (PRP) therapy to stimulate hair regrowth naturally.</p>
+                    <h1 class="fw-bold" data-aos="fade-up">Luxury Hair Extensions</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Transform your look with our premium hair extensions. Add length, volume, and dimension with seamless, natural-looking results.</p>
                     <div data-aos="fade-up" data-aos-delay="400">
-                        <a href="#process" class="btn btn-light btn-lg me-2">Learn More</a>
+                        <a href="#extensions" class="btn btn-light btn-lg me-2">View Extensions</a>
                         <a href="./book-now" class="btn btn-outline-light btn-lg ms-2">Book Consultation</a>
                     </div>
                 </div>
@@ -702,9 +691,9 @@
         <div class="container py-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <h2 class="fw-bold mb-3" data-aos="fade-up">Natural Hair Regrowth with PRP</h2>
-                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Platelet-Rich Plasma (PRP) therapy is a cutting-edge, non-surgical treatment for hair loss that uses your own blood to promote hair growth. The process involves drawing a small sample of your blood, spinning it in a centrifuge to concentrate the platelets, and then injecting this "liquid gold" into the areas of your scalp with thinning hair.</p>
-                    <p class="text-muted" data-aos="fade-up" data-aos-delay="200">These concentrated platelets are rich in growth factors that stimulate dormant hair follicles, increase circulation, and encourage the growth of new, healthier, and thicker hair. It is a safe and natural option for both men and women experiencing androgenetic alopecia (pattern baldness) or other forms of hair thinning.</p>
+                    <h2 class="fw-bold mb-3" data-aos="fade-up">Instant Length & Volume</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Our premium hair extensions offer a transformative solution for anyone looking to add length, volume, or dimension to their natural hair. Whether you're preparing for a special occasion or simply want to enhance your everyday look, our extensions provide instant, stunning results.</p>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="200">We offer a variety of application methods and hair types to ensure the perfect match for your hair texture, lifestyle, and desired outcome. Our expert stylists will help you choose the right option and apply them seamlessly for a completely natural look.</p>
                     
                     <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="row">
@@ -714,8 +703,8 @@
                                         <i class="fas fa-check-circle text-success"></i>
                                     </div>
                                     <div>
-                                        <h6 class="mb-1">Natural Solution</h6>
-                                        <p class="small text-muted mb-0">Uses your body's own healing properties</p>
+                                        <h6 class="mb-1">100% Human Hair</h6>
+                                        <p class="small text-muted mb-0">Premium quality, ethically sourced</p>
                                     </div>
                                 </div>
                             </div>
@@ -725,8 +714,8 @@
                                         <i class="fas fa-check-circle text-success"></i>
                                     </div>
                                     <div>
-                                        <h6 class="mb-1">No Downtime</h6>
-                                        <p class="small text-muted mb-0">Return to normal activities immediately</p>
+                                        <h6 class="mb-1">Custom Color Match</h6>
+                                        <p class="small text-muted mb-0">Perfectly blended to your hair</p>
                                     </div>
                                 </div>
                             </div>
@@ -736,8 +725,8 @@
                                         <i class="fas fa-check-circle text-success"></i>
                                     </div>
                                     <div>
-                                        <h6 class="mb-1">Safe & Effective</h6>
-                                        <p class="small text-muted mb-0">Minimal risk with proven results</p>
+                                        <h6 class="mb-1">Professional Application</h6>
+                                        <p class="small text-muted mb-0">Seamless, comfortable, and secure</p>
                                     </div>
                                 </div>
                             </div>
@@ -747,8 +736,8 @@
                                         <i class="fas fa-check-circle text-success"></i>
                                     </div>
                                     <div>
-                                        <h6 class="mb-1">Long-Lasting Results</h6>
-                                        <p class="small text-muted mb-0">Sustained improvement with maintenance</p>
+                                        <h6 class="mb-1">Multiple Methods</h6>
+                                        <p class="small text-muted mb-0">Options for every lifestyle</p>
                                     </div>
                                 </div>
                             </div>
@@ -758,13 +747,13 @@
                 <div class="col-lg-6">
                     <div class="owl-carousel owl-theme" data-aos="fade-left">
                         <div class="item">
-                            <img src="https://images.unsplash.com/photo-15562285785-5f1b2c2c2c2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="PRP Treatment">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="Hair extensions transformation">
                         </div>
                         <div class="item">
-                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="PRP Process">
+                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="Hair extension application">
                         </div>
                         <div class="item">
-                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="PRP Results">
+                            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="Hair extension styling">
                         </div>
                     </div>
                 </div>
@@ -776,36 +765,113 @@
     <section class="benefits-section py-5 bg-light">
         <div class="container py-4">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Benefits of PRP Therapy</h2>
-                <p class="lead text-muted">Why PRP is a leading solution for hair restoration.</p>
+                <h2 class="fw-bold">Why Choose Our Hair Extensions?</h2>
+                <p class="lead text-muted">The difference between standard and luxury hair extensions.</p>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
-                        <h5>Natural Solution</h5>
-                        <p class="text-muted">Uses your body's own growth factors, eliminating the risk of allergic reactions or rejection.</p>
+                        <div class="benefit-icon"><i class="fas fa-gem"></i></div>
+                        <h5>Premium Quality</h5>
+                        <p class="text-muted">We use only 100% human hair that can be styled, colored, and treated just like your natural hair.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h5>Minimal Risk</h5>
-                        <p class="text-muted">Safe procedure with minimal side effects and no significant downtime required.</p>
+                        <div class="benefit-icon"><i class="fas fa-palette"></i></div>
+                        <h5>Custom Color Match</h5>
+                        <p class="text-muted">Our experts blend multiple shades to create a perfect match that looks completely natural.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                        <h5>Proven Results</h5>
-                        <p class="text-muted">Clinically shown to increase hair count, thickness, and overall hair density.</p>
+                        <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
+                        <h5>Professional Application</h5>
+                        <p class="text-muted">Seamless installation that's comfortable, secure, and virtually undetectable.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
-                        <h5>Versatile Treatment</h5>
-                        <p class="text-muted">Effective for both men and women with various types of hair loss.</p>
+                        <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                        <h5>Long-Lasting Results</h5>
+                        <p class="text-muted">With proper care, our extensions maintain their quality and appearance for months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extension Types Section -->
+    <section id="extensions" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Our Extension Methods</h2>
+                <p class="lead text-muted">Choose the perfect application method for your lifestyle and hair type.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card">
+                        <div class="card-badge">Most Popular</div>
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-tape"></i></div>
+                            <h5 class="fw-bold">Tape-In Extensions</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Ultra-thin, lightweight extensions that lie flat against the head for a seamless, natural look. Quick application and removal.</p>
+                            <ul class="feature-list">
+                                <li>Lightweight and comfortable</li>
+                                <li>Quick 45-60 minute application</li>
+                                <li>Lays flat for invisible results</li>
+                                <li>Lasts 6-8 weeks between maintenance</li>
+                                <li>Reusable for multiple applications</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £250</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card">
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                            <h5 class="fw-bold">Micro-Bead Extensions</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Individual strands attached with tiny, silicone-lined beads that grip your natural hair without heat, glue, or tape.</p>
+                            <ul class="feature-list">
+                                <li>No heat, glue, or tape required</li>
+                                <li>Minimal damage to natural hair</li>
+                                <li>Easy to move up as hair grows</li>
+                                <li>Perfect for fine or thin hair</li>
+                                <li>Lasts 3-4 months with maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £350</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card">
+                        <div class="card-badge">Luxury</div>
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-fire"></i></div>
+                            <h5 class="fw-bold">Fusion/Keratin Extensions</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Individual strands bonded to your natural hair with keratin protein for the most secure and long-lasting attachment method.</p>
+                            <ul class="feature-list">
+                                <li>Most secure attachment method</li>
+                                <li>Moves and feels like natural hair</li>
+                                <li>Lasts 3-4 months between maintenance</li>
+                                <li>Ideal for active lifestyles</li>
+                                <li>Minimal visible attachment points</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £450</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -813,158 +879,88 @@
     </section>
 
     <!-- Process Section -->
-    <section id="process" class="process-section py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">The PRP Treatment Process</h2>
-                <p class="lead text-muted">A simple, three-step process to rejuvenate your hair follicles.</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h5>Blood Draw</h5>
-                        <p class="text-muted">A small amount of blood is drawn from your arm, similar to a routine blood test.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h5>Centrifuge Process</h5>
-                        <p class="text-muted">The blood sample is placed in a centrifuge, which spins at high speed to separate the platelet-rich plasma.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h5>Scalp Injections</h5>
-                        <p class="text-muted">The concentrated PRP is carefully injected into targeted areas of the scalp to stimulate hair follicles.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Treatment Cards Section -->
     <section class="py-5 bg-light">
         <div class="container py-4">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Our PRP Treatment Options</h2>
-                <p class="lead text-muted">Tailored solutions for your specific hair restoration needs.</p>
+                <h2 class="fw-bold">Our 4-Step Extension Process</h2>
+                <p class="lead text-muted">From consultation to your stunning new look in just a few simple steps.</p>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="modern-card">
-                        <div class="card-badge">Starter</div>
-                        <div class="card-header text-center">
-                            <div class="card-icon"><i class="fas fa-tint"></i></div>
-                            <h5 class="fw-bold">Initial Treatment Series</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-muted">Begin your hair restoration journey with our comprehensive initial treatment package.</p>
-                            <ul class="feature-list">
-                                <li>3 PRP sessions over 3 months</li>
-                                <li>Comprehensive scalp analysis</li>
-                                <li>Personalized treatment plan</li>
-                                <li>Progress tracking & assessment</li>
-                                <li>Home care recommendations</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer text-center">
-                            <small class="text-muted">£450 per session</small>
-                        </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h5>Consultation</h5>
+                        <p class="text-muted">We assess your hair, discuss your goals, and recommend the perfect extension method for you.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="modern-card">
-                        <div class="card-badge">Most Popular</div>
-                        <div class="card-header text-center">
-                            <div class="card-icon"><i class="fas fa-vial"></i></div>
-                            <h5 class="fw-bold">Advanced PRP Plus</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-muted">Enhanced PRP treatment with additional growth factors for optimal results.</p>
-                            <ul class="feature-list">
-                                <li>4 PRP+ sessions over 4 months</li>
-                                <li>Enhanced growth factor formula</li>
-                                <li>Advanced nutrient infusion</li>
-                                <li>Comprehensive before & after photos</li>
-                                <li>Nutritional supplement guidance</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer text-center">
-                            <small class="text-muted">£550 per session</small>
-                        </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h5>Color Matching</h5>
+                        <p class="text-muted">We custom blend extensions to perfectly match your natural hair color and texture.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="modern-card">
-                        <div class="card-header text-center">
-                            <div class="card-icon"><i class="fas fa-syringe"></i></div>
-                            <h5 class="fw-bold">Maintenance Program</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-muted">Sustain and enhance your results with our ongoing maintenance program.</p>
-                            <ul class="feature-list">
-                                <li>Single maintenance sessions</li>
-                                <li>Flexible scheduling (6-12 month intervals)</li>
-                                <li>Progress evaluation at each visit</li>
-                                <li>Combination therapy options</li>
-                                <li>Priority booking for members</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer text-center">
-                            <small class="text-muted">£400 per session</small>
-                        </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h5>Application</h5>
+                        <p class="text-muted">Our expert stylists apply your extensions with precision for seamless, natural results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h5>Styling & Aftercare</h5>
+                        <p class="text-muted">We style your new hair and provide detailed aftercare instructions for maintenance.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results Section -->
-    <section class="results-section py-5">
+    <!-- Extension Showcase Section -->
+    <section class="extension-showcase py-5">
         <div class="container py-4">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Real PRP Results</h2>
-                <p class="lead text-muted">See the transformation our clients have experienced with PRP therapy.</p>
+                <h2 class="fw-bold">Featured Extension Packages</h2>
+                <p class="lead text-muted">Our most popular hair extension options for different needs and budgets.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="result-card">
-                        <img src="https://images.unsplash.com/photo-1556228578-5f1b2c2c2c2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="PRP Results 1" class="result-img">
+                    <div class="extension-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Length Package" class="extension-img">
                         <div class="card-body">
-                            <h5 class="fw-bold">Male Pattern Hair Loss</h5>
-                            <p class="text-muted">Significant improvement in hair density and coverage after 6 months of PRP treatment.</p>
+                            <h5 class="fw-bold">Classic Length Package</h5>
+                            <p class="text-muted">Add 6-8 inches of length with our most popular tape-in extension package.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">6 Month Treatment</span>
-                                <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
+                                <span class="extension-price">£250</span>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="result-card">
-                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="PRP Results 2" class="result-img">
+                    <div class="extension-card">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Volume Boost Package" class="extension-img">
                         <div class="card-body">
-                            <h5 class="fw-bold">Female Hair Thinning</h5>
-                            <p class="text-muted">Noticeable increase in hair thickness and reduced shedding after PRP therapy.</p>
+                            <h5 class="fw-bold">Volume Boost Package</h5>
+                            <p class="text-muted">Transform fine, thin hair with added volume and body using micro-bead extensions.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">4 Month Treatment</span>
-                                <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
+                                <span class="extension-price">£350</span>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="result-card">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="PRP Results 3" class="result-img">
+                    <div class="extension-card">
+                        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Transformation" class="extension-img">
                         <div class="card-body">
-                            <h5 class="fw-bold">Temple Regrowth</h5>
-                            <p class="text-muted">Restoration of receding hairline and temple areas with targeted PRP treatment.</p>
+                            <h5 class="fw-bold">Luxury Transformation</h5>
+                            <p class="text-muted">Complete hair transformation with premium fusion extensions for maximum length and volume.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">8 Month Treatment</span>
-                                <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
+                                <span class="extension-price">£450</span>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -977,8 +973,8 @@
     <section class="faq-section py-5">
         <div class="container py-4">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">PRP Therapy FAQs</h2>
-                <p class="lead text-muted">Common questions about our PRP hair restoration treatments.</p>
+                <h2 class="fw-bold">Hair Extension FAQs</h2>
+                <p class="lead text-muted">Common questions about our premium hair extension services.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-9">
@@ -987,13 +983,13 @@
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Is PRP treatment painful?
+                                    How long do hair extensions last?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Patients typically experience minimal discomfort during the procedure. We can use a topical anesthetic or cooling device to ensure your comfort during the injections. Most clients describe the sensation as mild pinpricks that last only a few seconds.
+                                    With proper care, our hair extensions can last 3-6 months before needing replacement. Tape-in extensions typically last 6-8 weeks between maintenance appointments, while micro-bead and fusion extensions can last 3-4 months with proper maintenance. The lifespan also depends on your hair's growth rate and how well you follow our aftercare instructions.
                                 </div>
                             </div>
                         </div>
@@ -1001,13 +997,13 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How many treatments are needed and when will I see results?
+                                    Can I style my extensions like natural hair?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    We typically recommend an initial series of 3-4 treatments, spaced 4-6 weeks apart. Most patients begin to see initial results in hair texture and thickness within 2-3 months, with more significant improvement appearing after 6 months. Maintenance treatments are recommended every 6-12 months to sustain and enhance results.
+                                    Yes! Our 100% human hair extensions can be styled just like your natural hair. You can use heat styling tools, wash, condition, and even color them (though we recommend professional coloring). We'll provide you with specific care instructions and recommended products to maintain the quality and appearance of your extensions. Avoid applying direct heat to the attachment points to prolong their lifespan.
                                 </div>
                             </div>
                         </div>
@@ -1015,13 +1011,13 @@
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Are there any side effects or downtime?
+                                    Will extensions damage my natural hair?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Since PRP uses your own blood, there is virtually no risk of allergic reaction. You may experience mild redness, swelling, or tenderness at the injection sites, which typically resolves within 24-48 hours. There is no significant downtime, and you can resume most normal activities immediately. We recommend avoiding strenuous exercise and direct sun exposure for 24-48 hours post-treatment.
+                                    When applied and maintained correctly by our trained professionals, hair extensions should not damage your natural hair. We use methods that minimize stress on your hair follicles and ensure proper weight distribution. Following our aftercare instructions and attending regular maintenance appointments are crucial for keeping your natural hair healthy while wearing extensions.
                                 </div>
                             </div>
                         </div>
@@ -1029,13 +1025,13 @@
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Who is a good candidate for PRP therapy?
+                                    How do I choose the right extension method?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    PRP is most effective for individuals in the early to moderate stages of hair loss who still have some active hair follicles. It works well for both men and women with androgenetic alopecia (pattern hair loss). During your consultation, we'll assess your specific condition and determine if PRP is the right solution for you. We may recommend combining PRP with other treatments for optimal results in more advanced cases.
+                                    During your consultation, we'll assess your hair type, texture, lifestyle, and desired outcome to recommend the best extension method for you. Factors we consider include your natural hair thickness, how active you are, your styling preferences, and your maintenance commitment. We'll explain the pros and cons of each method and help you make an informed decision that aligns with your goals and lifestyle.
                                 </div>
                             </div>
                         </div>
@@ -1048,10 +1044,10 @@
     <!-- CTA Section -->
     <section class="cta-section text-center py-5">
         <div class="container position-relative">
-            <h2 class="fw-bold" data-aos="fade-up">Activate Your Natural Hair Growth</h2>
-            <p class="lead my-3 col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">Find out if PRP therapy is the right solution for you. Schedule a consultation with our hair restoration experts today.</p>
+            <h2 class="fw-bold" data-aos="fade-up">Transform Your Hair Today</h2>
+            <p class="lead my-3 col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">Ready to add length, volume, and dimension to your hair? Book a consultation with our extension specialists to discover your perfect look.</p>
             <div data-aos="fade-up" data-aos-delay="200">
-                <a href="./book-now" class="btn btn-light btn-lg mt-3 me-2">Book Your PRP Consultation</a>
+                <a href="./book-now" class="btn btn-light btn-lg mt-3 me-2">Book Extension Consultation</a>
                 <a href="./contact-us" class="btn btn-outline-light btn-lg mt-3 ms-2">Contact Us</a>
             </div>
         </div>

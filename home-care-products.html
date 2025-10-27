@@ -16,264 +16,239 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Custom CSS -->
+     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        /* General Body & Font Styles */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            background-color: #fdfaf3; /* Creamy beige background */
-        }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-        }
-
-        /* Header */
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .navbar-brand {
-            font-weight: 700;
-            color: #333 !important;
-        }
-        .navbar .nav-link {
-            color: #333 !important;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        .navbar .nav-link:hover, .navbar .nav-link.active {
-            color: #c5a47e !important;
-        }
-        .navbar .btn-primary {
-             background-color: #2b2b2b;
-             border-color: #2b2b2b;
-             font-weight: 600;
-        }
-        .navbar .btn-primary:hover {
-            background-color: #444;
-            border-color: #444;
-        }
-        
-        /* Smooth Dropdown Transition for Desktop */
-        .dropdown-menu {
-            border: none;
-            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
-            border-radius: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .dropdown-menu.show {
-            animation: fadeInDown 0.3s ease forwards;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Page Specific Styles */
-        
-        /* 1. Page Header */
-        .page-header {
+        /* Hero Section */
+        .hero-section {
             position: relative;
-            padding: 8rem 0;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            padding: 10rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('./assets/img/solutions/hair-products.jpg') no-repeat center center/cover;
             color: #fff;
-            text-align: center;
+            display: flex;
+            align-items: center;
         }
-        .page-header::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        .page-header .container {
+        /* Modern Card Styles */
+        .modern-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            height: 100%;
             position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .card-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
             z-index: 2;
         }
 
-        /* 2. Intro Section */
-        .intro-section {
-            background-color: #fff;
-        }
-        .intro-section img {
-            border-radius: 0.5rem;
-            object-fit: cover;
-            height: 100%;
-        }
-        
-        /* 3. Treatments Section */
-        .treatment-item {
-            background-color: #fff;
-            padding: 2.5rem 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-        .treatment-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 1rem 2rem rgba(0,0,0,0.08);
-        }
-        .treatment-item .icon {
+        .card-icon {
             font-size: 2.5rem;
-            color: #c5a47e;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(197, 164, 126, 0.1);
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-footer {
+            background-color: #fff;
+            border-top: 1px solid #f0f0f0;
+            padding: 1.5rem;
+        }
+
+        /* Feature List */
+        .feature-list {
+            padding-left: 0;
+            list-style: none;
             margin-bottom: 1.5rem;
-            display: inline-block;
-            background-color: #fceef2;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            content: "\f00c";
+            margin-right: 0.75rem;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-showcase::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
             border-radius: 50%;
         }
 
-        /* 4. FAQ Section */
+        .product-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(197, 164, 126, 0.1);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
         .faq-section .accordion-item {
             background-color: #fff;
             border: 1px solid #eee;
-            border-radius: 0.5rem !important;
+            border-radius: 0.75rem !important;
             margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
         }
+
         .faq-section .accordion-button {
             font-weight: 600;
-            color: #333;
+            color: var(--text-color);
+            padding: 1.25rem 1.5rem;
+            background-color: #fff;
         }
+
         .faq-section .accordion-button:not(.collapsed) {
-            background-color: #fceef2;
+            background-color: rgba(197, 164, 126, 0.05);
+            color: var(--primary-color);
             box-shadow: none;
-            color: #2b2b2b;
         }
+
         .faq-section .accordion-button:focus {
             box-shadow: none;
-            border-color: rgba(0,0,0,.125);
-        }
-        
-        /* 5. CTA Section */
-        .cta-section {
-            background: linear-gradient(45deg, #2b2b2b, #444);
-            color: #fff;
+            border-color: rgba(0, 0, 0, .125);
         }
 
-        /* Footer */
-        .footer {
-            background-color: #2b2b2b;
-            color: #f8f9fa;
-        }
-        .footer h5 {
-            color: #fff;
-            margin-bottom: 1.5rem;
-        }
-        .footer a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer a:hover {
-            color: #fff;
-        }
-        .footer .social-icons a {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-        }
-        .footer .footer-bottom {
-            border-top: 1px solid #444;
-        }
-
-        /* Fullscreen Modal Navigation for Medium and Small Screens */
-        @media (max-width: 991.98px) {
-            .navbar .navbar-collapse {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                background-color: #fdfaf3; /* Match body background */
-                z-index: 1050;
-                
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                /* Override Bootstrap's inline style for transition */
-                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            .navbar .navbar-collapse.show {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            /* Override Bootstrap's default hiding to allow for transition */
-            .navbar .navbar-collapse.collapse:not(.show) {
-                display: flex; /* Keep as flex to allow transition */
-            }
-
-            .navbar-collapse .navbar-nav {
-                margin-left: 0 !important;
-            }
-
-            .navbar-collapse .nav-item {
-                margin: 0.75rem 0;
-            }
-
-            .navbar-collapse .nav-link {
-                font-size: 1.75rem; /* Larger font for modal view */
-            }
-             .navbar-collapse .dropdown-menu {
-                text-align: center;
-                border: none;
-                background-color: transparent;
-                box-shadow: none;
-                display: block;
-                width: 100%;
-                animation: none;
-                max-height: 0;
-                padding: 0;
-                margin: 0;
-                overflow: hidden;
-                transition: max-height 0.35s ease-in-out;
-            }
-            .navbar-collapse .dropdown-item {
-                font-size: 1.25rem;
-                color: #555;
-                padding: 0.5rem 1rem;
-            }
-            
-            .navbar-collapse .dropdown-menu.show {
-                transform: none;
-                max-height: 250px; /* Adjust to fit all items */
-                margin-top: 0.5rem;
-            }
-
-            .navbar-collapse .btn-primary {
-               padding: 0.75rem 2rem;
-               font-size: 1.25rem;
-            }
-
-            .navbar-collapse .btn-close {
-                position: absolute;
-                top: 2rem;
-                right: 2rem;
-                font-size: 1.2rem;
-                z-index: 1051;
-            }
+        .faq-section .accordion-body {
+            padding: 1.5rem;
         }
     </style>
 </head>
@@ -282,14 +257,16 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid" style="height: 100px;">
+                <img src="https://via.placeholder.com/200x80?text=Tess+Hair+Clinic" alt="logo" class="img-fluid">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Close button for mobile fullscreen menu -->
-                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"></button>
+                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Close"></button>
 
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -299,7 +276,8 @@
                         <a class="nav-link" href="./about">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Solutions
                         </a>
                         <ul class="dropdown-menu">
@@ -308,35 +286,93 @@
                             <li><a class="dropdown-item" href="./home-care-products">Home Care Products</a></li>
                             <li><a class="dropdown-item" href="./wigs-hairpieces">Wigs & Hairpieces</a></li>
                             <li><a class="dropdown-item" href="./prp-hairloss">PRP Hairloss</a></li>
+                            <li><a class="dropdown-item" href="./hair-extensions">Hair Extensions</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./contact-us">Contact</a>
                     </li>
                 </ul>
-                <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
+                <a href="./book-now"
+                    class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- 1. Page Header -->
-    <header class="page-header" style="background-image: url('./assets/img/solutions/hair-products.jpg');">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <h1 class="display-4 fw-bold">Professional Home Care Products</h1>
-            <p class="lead col-lg-8 mx-auto">Extend the benefits of your in-clinic treatments with our curated selection of trichologist-approved hair and scalp care products.</p>
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="fw-bold" data-aos="fade-up">Professional Home Care Products</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Extend the benefits of your in-clinic treatments with our curated selection of trichologist-approved hair and scalp care products.</p>
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <a href="#products" class="btn btn-light btn-lg me-2">View Products</a>
+                        <a href="./book-now" class="btn btn-outline-light btn-lg ms-2">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
-    
-    <!-- 2. Intro Section -->
+    </section>
 
-    <section class="fade-in-section intro-section py-5">
+    <!-- Intro Section -->
+    <section class="py-5">
         <div class="container py-4">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-6">
-                            <h2 class="fw-bold mb-3">Maintain and Enhance Your Results at Home</h2>
-                            <p class="text-muted">Achieving and maintaining optimal hair and scalp health requires a consistent regimen. That's why we offer a premium range of home care products, carefully selected by our certified trichologists to complement our clinical treatments and support your hair goals between visits.</p>
-                            <p class="text-muted">Our collection includes everything from targeted shampoos and conditioners to potent serums and nutritional supplements. Each product is formulated with high-quality, effective ingredients to nourish the scalp, strengthen hair follicles, and promote healthy growth.</p>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3" data-aos="fade-up">Maintain and Enhance Your Results at Home</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Achieving and maintaining optimal hair and scalp health requires a consistent regimen. That's why we offer a premium range of home care products, carefully selected by our certified trichologists to complement our clinical treatments and support your hair goals between visits.</p>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="200">Our collection includes everything from targeted shampoos and conditioners to potent serums and nutritional supplements. Each product is formulated with high-quality, effective ingredients to nourish the scalp, strengthen hair follicles, and promote healthy growth.</p>
+                    
+                    <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Professional Grade</h6>
+                                        <p class="small text-muted mb-0">Higher concentrations of active ingredients</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Trichologist Approved</h6>
+                                        <p class="small text-muted mb-0">Selected by hair and scalp specialists</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Natural Ingredients</h6>
+                                        <p class="small text-muted mb-0">Free from harsh chemicals</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Personalized Plans</h6>
+                                        <p class="small text-muted mb-0">Tailored to your specific needs</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <div class="owl-carousel owl-theme">
                         <div class="item">
@@ -350,86 +386,241 @@
                         </div>
                     </div>
                 </div>
-                    </div>
-
+            </div>
         </div>
     </section>
 
-    <!-- 3. Product Categories Section -->
-    <section class="fade-in-section treatments-section py-5">
+    <!-- Product Categories Section -->
+    <section id="products" class="py-5 bg-light">
         <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Our Product Range</h2>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Our Professional Product Range</h2>
                 <p class="lead text-muted">A complete toolkit for your daily hair and scalp care routine.</p>
             </div>
-            <div class="row g-4 text-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="treatment-item">
-                        <div class="icon"><i class="fas fa-pump-soap"></i></div>
-                        <h5 class="fw-bold">Therapeutic Shampoos & Conditioners</h5>
-                        <p class="text-muted">Formulated to address specific scalp issues like dandruff, oiliness, and sensitivity, while gently cleansing and hydrating your hair.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card">
+                        <div class="card-badge">Bestseller</div>
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-pump-soap"></i></div>
+                            <h5 class="fw-bold">Therapeutic Shampoos & Conditioners</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Formulated to address specific scalp issues like dandruff, oiliness, and sensitivity, while gently cleansing and hydrating your hair.</p>
+                            <ul class="feature-list">
+                                <li>pH-balanced formulas</li>
+                                <li>Sulfate-free cleansing</li>
+                                <li>Targeted active ingredients</li>
+                                <li>Gentle on sensitive scalps</li>
+                                <li>Professional results at home</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £24.99</small>
+                        </div>
                     </div>
                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="treatment-item">
-                        <div class="icon"><i class="fas fa-flask"></i></div>
-                        <h5 class="fw-bold">Scalp & Growth Serums</h5>
-                        <p class="text-muted">Potent, leave-in treatments designed to stimulate follicles, reduce inflammation, and create the optimal environment for hair growth.</p>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card">
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-flask"></i></div>
+                            <h5 class="fw-bold">Scalp & Growth Serums</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Potent, leave-in treatments designed to stimulate follicles, reduce inflammation, and create the optimal environment for hair growth.</p>
+                            <ul class="feature-list">
+                                <li>High-concentration actives</li>
+                                <li>Targeted follicle stimulation</li>
+                                <li>Reduces scalp inflammation</li>
+                                <li>Non-greasy formulations</li>
+                                <li>Clinically tested ingredients</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £39.99</small>
+                        </div>
                     </div>
                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="treatment-item">
-                        <div class="icon"><i class="fas fa-pills"></i></div>
-                        <h5 class="fw-bold">Nutritional Supplements</h5>
-                        <p class="text-muted">Support hair health from the inside out with our range of vitamins and minerals specifically blended to combat deficiencies linked to hair loss.</p>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card">
+                        <div class="card-badge">New</div>
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-pills"></i></div>
+                            <h5 class="fw-bold">Nutritional Supplements</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Support hair health from the inside out with our range of vitamins and minerals specifically blended to combat deficiencies linked to hair loss.</p>
+                            <ul class="feature-list">
+                                <li>Essential hair vitamins</li>
+                                <li>Mineral complexes</li>
+                                <li>Biotin and collagen blends</li>
+                                <li>Antioxidant protection</li>
+                                <li>Vegan options available</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £29.99</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. FAQ Section -->
-    <section class="fade-in-section faq-section py-5">
+    <!-- Benefits Section -->
+    <section class="benefits-section py-5">
         <div class="container py-4">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Why Choose Our Professional Products?</h2>
+                <p class="lead text-muted">The difference between commercial and professional-grade hair care.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-flask"></i></div>
+                        <h5>Higher Potency</h5>
+                        <p class="text-muted">Our products contain higher concentrations of active ingredients than commercial alternatives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                        <h5>Clean Formulas</h5>
+                        <p class="text-muted">Free from harsh sulfates, parabens, and synthetic fragrances that can irritate the scalp.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-md"></i></div>
+                        <h5>Expert Selected</h5>
+                        <p class="text-muted">Every product is carefully chosen by our certified trichologists for efficacy and safety.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-sync-alt"></i></div>
+                        <h5>Treatment Synergy</h5>
+                        <p class="text-muted">Designed to work in harmony with your clinical treatments for enhanced results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section -->
+    <section class="product-showcase py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Featured Products</h2>
+                <p class="lead text-muted">Our most popular solutions for common hair and scalp concerns.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Revitalizing Shampoo" class="product-img">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Revitalizing Shampoo</h5>
+                            <p class="text-muted">Gentle cleanser with biotin and keratin to strengthen thinning hair.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">£24.99</span>
+                                <!-- <a href="#" class="btn btn-sm btn-primary">Add to Cart</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Growth Serum" class="product-img">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Growth Stimulating Serum</h5>
+                            <p class="text-muted">Powerful peptide formula to activate dormant hair follicles.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">£42.99</span>
+                                <!-- <a href="#" class="btn btn-sm btn-primary">Add to Cart</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hair Vitamins" class="product-img">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Hair & Scalp Vitamins</h5>
+                            <p class="text-muted">Complete nutritional support with biotin, zinc, and saw palmetto.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">£29.99</span>
+                                <!-- <a href="#" class="btn btn-sm btn-primary">Add to Cart</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="fw-bold">Home Care Questions</h2>
+                <p class="lead text-muted">Common questions about our professional home care products.</p>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Why can't I just use store-bought products?
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    While many commercial products are available, our professional-grade products contain higher concentrations of active ingredients and are specifically chosen to work in synergy with your treatment plan. They are free from harsh chemicals that can strip the hair and irritate the scalp.
+                                    While many commercial products are available, our professional-grade products contain higher concentrations of active ingredients and are specifically chosen to work in synergy with your treatment plan. They are free from harsh chemicals that can strip the hair and irritate the scalp, and are formulated to address specific hair and scalp conditions with proven efficacy.
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     How do I know which products are right for me?
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Our trichologist will recommend a personalized home care regimen for you based on your specific scalp and hair condition identified during your consultation. This ensures you are using the most effective products for your needs.
+                                    Our trichologist will recommend a personalized home care regimen for you based on your specific scalp and hair condition identified during your consultation. This ensures you are using the most effective products for your needs. We consider factors like your scalp type, hair texture, specific concerns (such as thinning, oiliness, or sensitivity), and your treatment goals to create a customized product plan.
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
                             <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     Can I purchase products without being a patient?
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Yes, some of our general wellness and maintenance products are available for direct purchase. However, for our most targeted and potent therapeutic products, a consultation is required to ensure they are appropriate for your condition.
+                                    Yes, some of our general wellness and maintenance products are available for direct purchase. However, for our most targeted and potent therapeutic products, a consultation is required to ensure they are appropriate for your condition. This ensures you get the best results and avoid using products that might not be suitable for your specific hair and scalp needs.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    How long until I see results with these products?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Most clients notice improvements in hair texture and scalp condition within 2-4 weeks of consistent use. However, significant changes to hair growth and density typically take 3-6 months, as this aligns with the natural hair growth cycle. Consistency is key, and we recommend following the usage instructions provided with your personalized product plan for optimal results.
                                 </div>
                             </div>
                         </div>
@@ -439,14 +630,22 @@
         </div>
     </section>
 
-    <!-- 5. CTA Section -->
-    <section class="fade-in-section cta-section text-center py-5">
-        <div class="container">
-            <h2 class="fw-bold">Get Your Personalised Product Plan</h2>
-            <p class="lead my-3 col-lg-8 mx-auto">Let our experts guide you to the perfect home care routine to support your journey to healthier hair.</p>
-            <a href="./book-now" class="btn btn-light btn-lg mt-3">Book a Consultation</a>
+    <!-- CTA Section -->
+    <section class="cta-section text-center py-5">
+        <div class="container position-relative">
+            <h2 class="fw-bold" data-aos="fade-up">Get Your Personalized Product Plan</h2>
+            <p class="lead my-3 col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">Let our experts guide you to the perfect home care routine to support your journey to healthier hair.</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="./book-now" class="btn btn-light btn-lg mt-3 me-2">Book a Consultation</a>
+                <a href="./contact-us" class="btn btn-outline-light btn-lg mt-3 ms-2">Contact Us</a>
+            </div>
         </div>
     </section>
+
+    <!-- Floating Action Button -->
+    <a href="./book-now" class="floating-action-btn">
+        <i class="fas fa-shopping-cart fa-lg"></i>
+    </a>
 
     <!-- Footer -->
     <footer class="footer pt-5">
@@ -467,7 +666,7 @@
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="text-uppercase">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="./about">About Us</a></li>
                         <li class="mb-2"><a href="#">Our Solutions</a></li>
                         <li class="mb-2"><a href="#">Client Reviews</a></li>
                         <li class="mb-2"><a href="#">Shop Products</a></li>
@@ -478,7 +677,7 @@
                     <h5 class="text-uppercase">Get in touch</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <i class="fas fa-map-marker-alt me-2"></i>77a Botanic Avenue BT7 1JLNorthern Ireland Uk
+                            <i class="fas fa-map-marker-alt me-2"></i>77a Botanic Avenue BT7 1JL, Northern Ireland UK
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-phone me-2"></i>+44 7359 112051
@@ -510,17 +709,37 @@
             <small>&copy; 2024 Tess Hair & Scalp Clinic. All Rights Reserved.</small>
         </div>
     </footer>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <!-- JQuery and Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
-
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize Owl Carousel
         $(document).ready(function(){
             $('.owl-carousel').owlCarousel({
                 items: 1,
@@ -534,6 +753,5 @@
             });
         });
     </script>
-
 </body>
 </html>

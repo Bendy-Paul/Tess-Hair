@@ -16,184 +16,510 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Custom CSS -->
     <style>
-        /* General Body & Font Styles */
+        :root {
+            --primary-color: #2b2b2b;
+            --secondary-color: #c5a47e;
+            --accent-color: #fdfaf3;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #333;
-            background-color: #fdfaf3; /* Creamy beige background */
+            color: var(--text-color);
+            background-color: var(--accent-color);
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
         }
 
-        /* Header */
+        /* Header Styles */
         .navbar {
             background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
         }
+
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
         .navbar-brand {
             font-weight: 700;
-            color: #333 !important;
+            color: var(--primary-color) !important;
         }
+
         .navbar .nav-link {
-            color: #333 !important;
+            color: var(--text-color) !important;
             font-weight: 600;
             transition: color 0.3s ease;
-        }
-        .navbar .nav-link:hover, .navbar .nav-link.active {
-            color: #c5a47e !important;
-        }
-        .navbar .btn-primary {
-             background-color: #2b2b2b;
-             border-color: #2b2b2b;
-             font-weight: 600;
-        }
-        .navbar .btn-primary:hover {
-            background-color: #444;
-            border-color: #444;
-        }
-        
-        /* Smooth Dropdown Transition for Desktop */
-        .dropdown-menu {
-            border: none;
-            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
-            border-radius: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .dropdown-menu.show {
-            animation: fadeInDown 0.3s ease forwards;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Page Specific Styles */
-        
-        /* 1. Page Header */
-        .page-header {
             position: relative;
-            padding: 8rem 0;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
         }
-        .page-header::after {
+
+        .navbar .nav-link::after {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
         }
-        .page-header .container {
+
+        .navbar .nav-link:hover::after,
+        .navbar .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #444;
+            border-color: #444;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 10rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('./assets/img/what we do/wig.avif') no-repeat center center/cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-section .container {
             position: relative;
             z-index: 2;
         }
 
-        /* 2. Intro Section */
-        .intro-section {
-            background-color: #fff;
-        }
-        .intro-section img {
-            border-radius: 0.5rem;
-            object-fit: cover;
-            height: 100%;
-        }
-        
-        /* 3. Treatments Section */
-        .treatment-item {
-            background-color: #fff;
-            padding: 2.5rem 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-        .treatment-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 1rem 2rem rgba(0,0,0,0.08);
-        }
-        .treatment-item .icon {
-            font-size: 2.5rem;
-            color: #c5a47e;
+        .hero-section h1 {
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            display: inline-block;
-            background-color: #fceef2;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section .lead {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Modern Card Styles */
+        .modern-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .card-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(197, 164, 126, 0.1);
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-footer {
+            background-color: #fff;
+            border-top: 1px solid #f0f0f0;
+            padding: 1.5rem;
+        }
+
+        /* Feature List */
+        .feature-list {
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            content: "\f00c";
+            margin-right: 0.75rem;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Wig Showcase */
+        .wig-showcase {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wig-showcase::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
             border-radius: 50%;
         }
 
-        /* 4. FAQ Section */
+        .wig-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        .wig-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .wig-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .wig-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(197, 164, 126, 0.1);
+        }
+
+        /* Process Section */
+        .process-step {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 20%;
+            height: 2px;
+            background-color: #e9ecef;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
         .faq-section .accordion-item {
             background-color: #fff;
             border: 1px solid #eee;
-            border-radius: 0.5rem !important;
+            border-radius: 0.75rem !important;
             margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
         }
+
         .faq-section .accordion-button {
             font-weight: 600;
-            color: #333;
+            color: var(--text-color);
+            padding: 1.25rem 1.5rem;
+            background-color: #fff;
         }
+
         .faq-section .accordion-button:not(.collapsed) {
-            background-color: #fceef2;
+            background-color: rgba(197, 164, 126, 0.05);
+            color: var(--primary-color);
             box-shadow: none;
-            color: #2b2b2b;
         }
+
         .faq-section .accordion-button:focus {
             box-shadow: none;
-            border-color: rgba(0,0,0,.125);
+            border-color: rgba(0, 0, 0, .125);
         }
-        
-        /* 5. CTA Section */
+
+        .faq-section .accordion-body {
+            padding: 1.5rem;
+        }
+
+        /* CTA Section */
         .cta-section {
-            background: linear-gradient(45deg, #2b2b2b, #444);
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #444 100%);
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.2) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.1) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section .btn-light {
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-section .btn-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating Action Button */
+        .floating-action-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-action-btn:hover {
+            transform: scale(1.1);
+            color: white;
         }
 
         /* Footer */
         .footer {
-            background-color: #2b2b2b;
-            color: #f8f9fa;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
         }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 164, 126, 0.1) 0%, rgba(197, 164, 126, 0) 70%);
+            border-radius: 50%;
+        }
+
         .footer h5 {
             color: #fff;
             margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
         }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: -8px;
+            left: 0;
+        }
+
         .footer a {
             color: #adb5bd;
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         .footer a:hover {
-            color: #fff;
-        }
-        .footer .social-icons a {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-        }
-        .footer .footer-bottom {
-            border-top: 1px solid #444;
+            color: var(--secondary-color);
         }
 
-        /* Fullscreen Modal Navigation for Medium and Small Screens */
+        .footer .social-icons a {
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1.5rem;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 991.98px) {
             .navbar .navbar-collapse {
                 position: fixed;
@@ -201,15 +527,12 @@
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                background-color: #fdfaf3; /* Match body background */
+                background-color: var(--accent-color);
                 z-index: 1050;
-                
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-
-                /* Override Bootstrap's inline style for transition */
                 transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
                 opacity: 0;
                 visibility: hidden;
@@ -220,9 +543,8 @@
                 visibility: visible;
             }
 
-            /* Override Bootstrap's default hiding to allow for transition */
             .navbar .navbar-collapse.collapse:not(.show) {
-                display: flex; /* Keep as flex to allow transition */
+                display: flex;
             }
 
             .navbar-collapse .navbar-nav {
@@ -234,9 +556,10 @@
             }
 
             .navbar-collapse .nav-link {
-                font-size: 1.75rem; /* Larger font for modal view */
+                font-size: 1.75rem;
             }
-             .navbar-collapse .dropdown-menu {
+
+            .navbar-collapse .dropdown-menu {
                 text-align: center;
                 border: none;
                 background-color: transparent;
@@ -250,21 +573,22 @@
                 overflow: hidden;
                 transition: max-height 0.35s ease-in-out;
             }
+
             .navbar-collapse .dropdown-item {
                 font-size: 1.25rem;
                 color: #555;
                 padding: 0.5rem 1rem;
             }
-            
+
             .navbar-collapse .dropdown-menu.show {
                 transform: none;
-                max-height: 250px; /* Adjust to fit all items */
+                max-height: 250px;
                 margin-top: 0.5rem;
             }
 
             .navbar-collapse .btn-primary {
-               padding: 0.75rem 2rem;
-               font-size: 1.25rem;
+                padding: 0.75rem 2rem;
+                font-size: 1.25rem;
             }
 
             .navbar-collapse .btn-close {
@@ -274,6 +598,20 @@
                 font-size: 1.2rem;
                 z-index: 1051;
             }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 7rem 0;
+            }
         }
     </style>
 </head>
@@ -282,14 +620,17 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./assets/img/Tess Hair & Scalp Clinic Logo.png" alt="logo" class="img-fluid" style="height: 100px;">
+                <img src="https://via.placeholder.com/200x80?text=Tess+Hair+Clinic" alt="logo" class="img-fluid">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Close button for mobile fullscreen menu -->
-                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"></button>
+                <button type="button" class="btn-close d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Close"></button>
+
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="./">Home</a>
@@ -298,7 +639,8 @@
                         <a class="nav-link" href="./about">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Solutions
                         </a>
                         <ul class="dropdown-menu">
@@ -307,34 +649,93 @@
                             <li><a class="dropdown-item" href="./home-care-products">Home Care Products</a></li>
                             <li><a class="dropdown-item" href="./wigs-hairpieces">Wigs & Hairpieces</a></li>
                             <li><a class="dropdown-item" href="./prp-hairloss">PRP Hairloss</a></li>
+                            <li><a class="dropdown-item" href="./hair-extensions">Hair Extensions</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./contact-us">Contact</a>
                     </li>
                 </ul>
-                <a href="./book-now" class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
+                <a href="./book-now"
+                    class="btn btn-primary ms-lg-3 d-block d-lg-inline-block mx-auto mx-lg-0 mt-4 mt-lg-0">Book Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- 1. Page Header -->
-    <header class="page-header" style="background-image: url('./assets/img/what we do/wig.avif');">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <h1 class="display-4 fw-bold">Luxury Wigs & Hairpieces</h1>
-            <p class="lead col-lg-8 mx-auto">Discover our exquisite collection of custom and ready-to-wear wigs and hairpieces, designed for comfort, style, and a natural appearance.</p>
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="fw-bold" data-aos="fade-up">Luxury Wigs & Hairpieces</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Discover our exquisite collection of custom and ready-to-wear wigs and hairpieces, designed for comfort, style, and a natural appearance.</p>
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <a href="#collection" class="btn btn-light btn-lg me-2">View Collection</a>
+                        <a href="./book-now" class="btn btn-outline-light btn-lg ms-2">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
-    
-    <!-- 2. Intro Section -->
-    <section class="fade-in-section intro-section py-5">
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-5">
         <div class="container py-4">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-6">
-                            <h2 class="fw-bold mb-3">Find Your Perfect Style & Fit</h2>
-                            <p class="text-muted">For those experiencing hair loss due to medical treatments, alopecia, or other conditions, a high-quality wig or hairpiece can be a powerful tool for restoring confidence and a sense of self. At Tess Hair & Scalp Clinic, we offer a compassionate and private consultation service to help you find the perfect solution.</p>
-                            <p class="text-muted">Our collection features a wide range of styles, colors, and materials, including premium human hair and advanced synthetic fibers. We specialize in custom fittings, cutting, and styling to ensure your wig looks completely natural and feels comfortable for everyday wear.</p>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3" data-aos="fade-up">Find Your Perfect Style & Fit</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">For those experiencing hair loss due to medical treatments, alopecia, or other conditions, a high-quality wig or hairpiece can be a powerful tool for restoring confidence and a sense of self. At Tess Hair & Scalp Clinic, we offer a compassionate and private consultation service to help you find the perfect solution.</p>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="200">Our collection features a wide range of styles, colors, and materials, including premium human hair and advanced synthetic fibers. We specialize in custom fittings, cutting, and styling to ensure your wig looks completely natural and feels comfortable for everyday wear.</p>
+                    
+                    <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Private Consultations</h6>
+                                        <p class="small text-muted mb-0">Discreet, comfortable environment</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Custom Fitting</h6>
+                                        <p class="small text-muted mb-0">Perfect fit for all-day comfort</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Natural Appearance</h6>
+                                        <p class="small text-muted mb-0">Undetectable, realistic results</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Expert Styling</h6>
+                                        <p class="small text-muted mb-0">Professional cutting and styling</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <div class="owl-carousel owl-theme">
                         <div class="item">
@@ -352,81 +753,277 @@
         </div>
     </section>
 
-    <!-- 3. Our Collection Section -->
-    <section class="fade-in-section treatments-section py-5">
+    <!-- Collection Section -->
+    <section id="collection" class="py-5 bg-light">
         <div class="container py-4">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="fw-bold">Our Wig & Hairpiece Collection</h2>
                 <p class="lead text-muted">Solutions for every need, from full coverage to targeted volume.</p>
             </div>
-            <div class="row g-4 text-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="treatment-item">
-                        <div class="icon"><i class="fas fa-star"></i></div>
-                        <h5 class="fw-bold">Human Hair Wigs</h5>
-                        <p class="text-muted">The ultimate in realism. Our 100% human hair wigs can be styled, colored, and treated just like your own hair, offering maximum versatility and a flawless, natural look.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card">
+                        <div class="card-badge">Premium</div>
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-star"></i></div>
+                            <h5 class="fw-bold">Human Hair Wigs</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">The ultimate in realism. Our 100% human hair wigs can be styled, colored, and treated just like your own hair, offering maximum versatility and a flawless, natural look.</p>
+                            <ul class="feature-list">
+                                <li>100% European human hair</li>
+                                <li>Can be styled with heat tools</li>
+                                <li>Custom color matching available</li>
+                                <li>Long-lasting durability</li>
+                                <li>Most natural movement and feel</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £450</small>
+                        </div>
                     </div>
                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="treatment-item">
-                        <div class="icon"><i class="fas fa-cogs"></i></div>
-                        <h5 class="fw-bold">Synthetic Wigs</h5>
-                        <p class="text-muted">Modern synthetic wigs offer incredible realism with the convenience of pre-set styles. They are a lower-maintenance, durable, and cost-effective option available in a vast array of colors and cuts.</p>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card">
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                            <h5 class="fw-bold">Synthetic Wigs</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Modern synthetic wigs offer incredible realism with the convenience of pre-set styles. They are a lower-maintenance, durable, and cost-effective option available in a vast array of colors and cuts.</p>
+                            <ul class="feature-list">
+                                <li>Pre-styled for easy wear</li>
+                                <li>Heat-resistant fibers available</li>
+                                <li>Wide range of colors and styles</li>
+                                <li>Lightweight and comfortable</li>
+                                <li>Budget-friendly options</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £150</small>
+                        </div>
                     </div>
                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="treatment-item">
-                        <div class="icon"><i class="fas fa-puzzle-piece"></i></div>
-                        <h5 class="fw-bold">Toppers & Hairpieces</h5>
-                        <p class="text-muted">Ideal for adding volume to thinning hair or concealing localized hair loss. These pieces integrate seamlessly with your existing hair to provide a natural boost of fullness right where you need it.</p>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card">
+                        <div class="card-badge">Popular</div>
+                        <div class="card-header text-center">
+                            <div class="card-icon"><i class="fas fa-puzzle-piece"></i></div>
+                            <h5 class="fw-bold">Toppers & Hairpieces</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Ideal for adding volume to thinning hair or concealing localized hair loss. These pieces integrate seamlessly with your existing hair to provide a natural boost of fullness right where you need it.</p>
+                            <ul class="feature-list">
+                                <li>Perfect for partial hair loss</li>
+                                <li>Blends with existing hair</li>
+                                <li>Lightweight and comfortable</li>
+                                <li>Easy to attach and remove</li>
+                                <li>Various attachment methods</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Starting from £120</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. FAQ Section -->
-    <section class="fade-in-section faq-section py-5">
+    <!-- Benefits Section -->
+    <section class="benefits-section py-5">
         <div class="container py-4">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Why Choose Our Wigs & Hairpieces?</h2>
+                <p class="lead text-muted">The difference between standard and luxury hair solutions.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
+                        <h5>Custom Fitting</h5>
+                        <p class="text-muted">Every wig is professionally fitted to your head shape for optimal comfort and security.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-cut"></i></div>
+                        <h5>Professional Styling</h5>
+                        <p class="text-muted">Our stylists cut and style each wig to suit your face shape and personal preferences.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h5>Quality Materials</h5>
+                        <p class="text-muted">We use only premium human hair and advanced synthetic fibers for the most natural look.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                        <h5>Compassionate Care</h5>
+                        <p class="text-muted">We provide a supportive, private environment for all our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Our Simple 4-Step Process</h2>
+                <p class="lead text-muted">From consultation to your perfect wig in just a few easy steps.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h5>Private Consultation</h5>
+                        <p class="text-muted">We discuss your needs, preferences, and lifestyle in a comfortable, private setting.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h5>Selection & Fitting</h5>
+                        <p class="text-muted">We help you choose the perfect wig and ensure it fits comfortably and securely.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h5>Custom Styling</h5>
+                        <p class="text-muted">Our stylists cut and style your wig to perfectly suit your face and personal style.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h5>Aftercare & Maintenance</h5>
+                        <p class="text-muted">We provide guidance on care and maintenance to keep your wig looking its best.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wig Showcase Section -->
+    <section class="wig-showcase py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Featured Wigs & Hairpieces</h2>
+                <p class="lead text-muted">Our most popular solutions for different needs and preferences.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="wig-card">
+                        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elena Human Hair Wig" class="wig-img">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Elena Human Hair Wig</h5>
+                            <p class="text-muted">Luxury 100% European human hair with natural movement and styling versatility.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="wig-price">£650</span>
+                                <!-- <a href="#" class="btn btn-sm btn-primary">View Details</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="wig-card">
+                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sofia Synthetic Wig" class="wig-img">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Sofia Synthetic Wig</h5>
+                            <p class="text-muted">Heat-friendly synthetic fiber with pre-styled layers and natural-looking part.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="wig-price">£220</span>
+                                <!-- <a href="#" class="btn btn-sm btn-primary">View Details</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="wig-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Volume Topper" class="wig-img">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Volume Topper</h5>
+                            <p class="text-muted">Lightweight hair topper for adding volume and coverage to thinning areas.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="wig-price">£180</span>
+                                <!-- <a href="#" class="btn btn-sm btn-primary">View Details</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="fw-bold">Wig & Hairpiece FAQs</h2>
+                <p class="lead text-muted">Common questions about our luxury wigs and hairpieces.</p>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Will it look like I'm wearing a wig?
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Our primary goal is a natural, undetectable result. We use high-quality materials and provide professional custom fitting and styling. A well-fitted, properly styled wig from our collection will look and move just like natural hair.
+                                    Our primary goal is a natural, undetectable result. We use high-quality materials and provide professional custom fitting and styling. A well-fitted, properly styled wig from our collection will look and move just like natural hair. We pay special attention to details like the hairline, parting, and overall shape to ensure a completely natural appearance.
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     How do I care for my wig?
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    We provide detailed instructions and recommend specific products for washing and styling your wig or hairpiece. Proper care is essential to maintain its appearance and longevity. Human hair wigs require more styling, while synthetic wigs hold their style with minimal effort.
+                                    We provide detailed instructions and recommend specific products for washing and styling your wig or hairpiece. Proper care is essential to maintain its appearance and longevity. Human hair wigs require more styling but can be treated much like natural hair, while synthetic wigs hold their style with minimal effort but require specialized cleaning products. We offer aftercare workshops and maintenance services to help you keep your wig in perfect condition.
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
                             <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     Is the consultation process private?
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Absolutely. All our consultations and fittings are conducted in a private, comfortable room. We understand the sensitive nature of hair loss and are committed to ensuring your experience is discreet and supportive.
+                                    Absolutely. All our consultations and fittings are conducted in a private, comfortable room. We understand the sensitive nature of hair loss and are committed to ensuring your experience is discreet and supportive. Many of our team members have personal experience with hair loss, so we approach every consultation with empathy and understanding.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    How long does a wig typically last?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    With proper care, a high-quality human hair wig can last 1-2 years, while synthetic wigs typically last 4-6 months with regular wear. The lifespan depends on factors like how often you wear it, your styling habits, and how well you maintain it. We recommend having a second wig to alternate between, which can extend the life of both pieces. Our maintenance services can also help refresh and restore wigs to extend their lifespan.
                                 </div>
                             </div>
                         </div>
@@ -436,14 +1033,22 @@
         </div>
     </section>
 
-    <!-- 5. CTA Section -->
-    <section class="fade-in-section cta-section text-center py-5">
-        <div class="container">
-            <h2 class="fw-bold">Find Your Perfect Match</h2>
-            <p class="lead my-3 col-lg-8 mx-auto">Our caring specialists are here to guide you through the options in a comfortable and confidential setting.</p>
-            <a href="./book-now" class="btn btn-light btn-lg mt-3">Book a Private Wig Consultation</a>
+    <!-- CTA Section -->
+    <section class="cta-section text-center py-5">
+        <div class="container position-relative">
+            <h2 class="fw-bold" data-aos="fade-up">Find Your Perfect Match</h2>
+            <p class="lead my-3 col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">Our caring specialists are here to guide you through the options in a comfortable and confidential setting.</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="./book-now" class="btn btn-light btn-lg mt-3 me-2">Book a Private Wig Consultation</a>
+                <a href="./contact-us" class="btn btn-outline-light btn-lg mt-3 ms-2">Contact Us</a>
+            </div>
         </div>
     </section>
+
+    <!-- Floating Action Button -->
+    <a href="./book-now" class="floating-action-btn">
+        <i class="fas fa-calendar-check fa-lg"></i>
+    </a>
 
     <!-- Footer -->
     <footer class="footer pt-5">
@@ -475,7 +1080,7 @@
                     <h5 class="text-uppercase">Get in touch</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <i class="fas fa-map-marker-alt me-2"></i>77a Botanic Avenue BT7 1JLNorthern Ireland Uk
+                            <i class="fas fa-map-marker-alt me-2"></i>77a Botanic Avenue BT7 1JL, Northern Ireland UK
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-phone me-2"></i>+44 7359 112051
@@ -507,17 +1112,37 @@
             <small>&copy; 2024 Tess Hair & Scalp Clinic. All Rights Reserved.</small>
         </div>
     </footer>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <!-- JQuery and Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
-
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize Owl Carousel
         $(document).ready(function(){
             $('.owl-carousel').owlCarousel({
                 items: 1,
